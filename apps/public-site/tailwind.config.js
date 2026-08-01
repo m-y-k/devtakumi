@@ -111,5 +111,10 @@ export default {
       },
     },
   },
-  plugins: [tailwindcssAnimate],
+  plugins: [
+    tailwindcssAnimate,
+    ({ addVariant }) => {
+      addVariant('light', 'html.light &')
+    },
+  ],
 }

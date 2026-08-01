@@ -24,10 +24,10 @@ export default function About() {
               <DevtakumiLogo size="lg" />
             </div>
           </div>
-          <h1 className="font-display text-3xl md:text-5xl font-bold text-white tracking-tight mb-4">
+          <h1 className="font-display text-3xl md:text-5xl font-bold text-foreground tracking-tight mb-4">
             Built for <span className="text-gradient-orange">depth</span>, not breadth
           </h1>
-          <p className="text-slate-400 max-w-2xl mx-auto leading-relaxed text-sm md:text-base">
+          <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed text-sm md:text-base">
             A coding bootcamp where real SDE mentors, one comprehensive roadmap, and a deliberate curriculum take you from absolute beginner to advanced full-stack.
           </p>
         </div>
@@ -39,8 +39,8 @@ export default function About() {
                 <v.icon className="w-5 h-5 text-orange-400" />
               </div>
               <div>
-                <h3 className="font-display font-bold text-white text-sm mb-1">{v.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{v.desc}</p>
+                <h3 className="font-display font-bold text-foreground text-sm mb-1">{v.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{v.desc}</p>
               </div>
             </div>
           ))}
@@ -53,16 +53,16 @@ export default function About() {
               <Code2 className="w-8 h-8 text-white" />
             </div>
             <div>
-              <h2 className="font-display text-xl font-bold text-white mb-1">Flipkart SDE Mentors</h2>
+              <h2 className="font-display text-xl font-bold text-foreground mb-1">Flipkart SDE Mentors</h2>
               <p className="text-orange-500 font-bold text-xs mb-3 uppercase tracking-widest">Senior Software Engineers @ Flipkart</p>
-              <p className="text-slate-400 leading-relaxed text-sm md:text-base">
+              <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                 We built devtakumi because the best way to learn software engineering is from professionals
                 who are actively doing it — not from educators who haven't written production code in years.
                 Every topic we teach is something we encounter at our jobs. Every project is real-world.
               </p>
               <div className="flex flex-wrap gap-2 mt-4">
                 {['Production-grade code', 'Scale-first thinking', 'Interview-ready depth'].map((t) => (
-                  <Badge key={t} variant="muted" className="gap-1.5 !text-slate-300">
+                  <Badge key={t} variant="muted" className="gap-1.5 !text-foreground/80">
                     <Check className="w-3 h-3 text-orange-400" />
                     {t}
                   </Badge>
@@ -74,14 +74,14 @@ export default function About() {
 
         <div className="grid md:grid-cols-2 gap-4">
           <div className="glass rounded-3xl p-6 reveal">
-            <h2 className="font-display text-lg font-bold text-white mb-5">Get in Touch</h2>
+            <h2 className="font-display text-lg font-bold text-foreground mb-5">Get in Touch</h2>
             <div className="space-y-4">
               <div className="flex items-center gap-3 group">
                 <div className="w-10 h-10 bg-orange-500/10 border border-orange-500/25 rounded-xl flex items-center justify-center text-orange-400 shrink-0 group-hover:scale-105 transition">
                   <Mail className="w-4 h-4" />
                 </div>
                 <div>
-                  <p className="text-[11px] text-slate-500 font-bold uppercase tracking-widest">Email</p>
+                  <p className="text-[11px] text-muted-foreground font-bold uppercase tracking-widest">Email</p>
                   <a href={`mailto:${PUBLIC_SETTINGS.contactEmail}`} className="text-orange-400 hover:text-orange-300 font-bold text-sm transition">
                     {PUBLIC_SETTINGS.contactEmail}
                   </a>
@@ -93,7 +93,7 @@ export default function About() {
                   <MessageCircle className="w-4 h-4" />
                 </div>
                 <div>
-                  <p className="text-[11px] text-slate-500 font-bold uppercase tracking-widest">WhatsApp</p>
+                  <p className="text-[11px] text-muted-foreground font-bold uppercase tracking-widest">WhatsApp</p>
                   <a href={`https://wa.me/${PUBLIC_SETTINGS.whatsappNumber}`} target="_blank" rel="noopener noreferrer" className="text-green-400 hover:text-green-300 font-bold text-sm transition">
                     Message us →
                   </a>
@@ -104,9 +104,9 @@ export default function About() {
 
           <div className="glass rounded-3xl p-6 flex flex-col justify-between reveal [transition-delay:120ms]">
             <div>
-              <h2 className="font-display text-lg font-bold text-white mb-2">Ready to join?</h2>
-              <p className="text-slate-400 text-sm mb-1">{PUBLIC_SETTINGS.batchSchedule}</p>
-              <p className="text-slate-500 text-xs">{PUBLIC_SETTINGS.classCount} live classes across 3 stages</p>
+              <h2 className="font-display text-lg font-bold text-foreground mb-2">Ready to join?</h2>
+              <p className="text-muted-foreground text-sm mb-1">{PUBLIC_SETTINGS.batchSchedule}</p>
+              <p className="text-muted-foreground text-xs">{PUBLIC_SETTINGS.classCount} live classes across 3 stages</p>
             </div>
             <Button asChild className="w-full mt-5" size="lg">
               <Link to="/enroll">

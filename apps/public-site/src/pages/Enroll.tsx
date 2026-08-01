@@ -74,9 +74,9 @@ export default function Enroll() {
               <CheckCircle2 className="w-12 h-12 text-white" />
             </div>
           </div>
-          <h1 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">Request Submitted! 🎉</h1>
-          <p className="text-slate-400 text-lg mb-2">We'll verify your payment and email your login details within 24 hours.</p>
-          <p className="text-slate-500 text-sm mb-8">
+          <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">Request Submitted! 🎉</h1>
+          <p className="text-muted-foreground text-lg mb-2">We'll verify your payment and email your login details within 24 hours.</p>
+          <p className="text-muted-foreground text-sm mb-8">
             Check your inbox (and spam folder) for the onboarding email. If WhatsApp opened, send your payment screenshot there too.
           </p>
           <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="btn-primary">
@@ -96,8 +96,8 @@ export default function Enroll() {
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-10 reveal">
           <span className="eyebrow justify-center mb-3">Join devtakumi</span>
-          <h1 className="font-display text-3xl md:text-5xl font-bold text-white tracking-tight mb-4">Enroll Now</h1>
-          <p className="text-slate-400 max-w-lg mx-auto text-sm md:text-base">
+          <h1 className="font-display text-3xl md:text-5xl font-bold text-foreground tracking-tight mb-4">Enroll Now</h1>
+          <p className="text-muted-foreground max-w-lg mx-auto text-sm md:text-base">
             Pay via UPI and submit your request. We'll verify your payment and send login credentials within 24 hours.
           </p>
         </div>
@@ -151,19 +151,19 @@ export default function Enroll() {
                       id="enroll-course"
                       value={selectedCourseId}
                       onChange={handleCourseChange}
-                      className="w-full bg-black/30 border border-white/10 text-white rounded-xl px-4 py-3 placeholder-slate-600 font-medium text-sm transition cursor-pointer appearance-none pr-10"
+                      className="w-full bg-secondary/40 border border-border text-foreground rounded-xl px-4 py-3 placeholder-muted-foreground font-medium text-sm transition cursor-pointer appearance-none pr-10"
                     >
-                      <option value="" className="bg-slate-950">Choose a course...</option>
+                      <option value="" className="bg-background">Choose a course...</option>
                       {courses.map(c => {
                         const price = calculateDiscountedPrice(c.priceInr, discount.percentage)
                         return (
-                          <option key={c.id} value={c.id} className="bg-slate-950">
+                          <option key={c.id} value={c.id} className="bg-background">
                             {c.title} — ₹{price} {discount.percentage > 0 ? `(${discount.percentage}% off)` : ''}
                           </option>
                         )
                       })}
                     </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-muted-foreground">
                       <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                         <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                       </svg>
@@ -189,13 +189,13 @@ export default function Enroll() {
                   placeholder="e.g. 407212345678"
                   className="font-mono"
                 />
-                <p className="text-slate-500 text-xs mt-1.5 font-medium">Find this in your UPI app's transaction history</p>
+                <p className="text-muted-foreground text-xs mt-1.5 font-medium">Find this in your UPI app's transaction history</p>
               </div>
 
               <div>
-                <Label htmlFor="screenshot-input">Payment Screenshot <span className="text-slate-500 font-normal">(optional but recommended)</span></Label>
+                <Label htmlFor="screenshot-input">Payment Screenshot <span className="text-muted-foreground font-normal">(optional but recommended)</span></Label>
                 <div
-                  className="relative border-2 border-dashed border-white/10 hover:border-orange-500/40 rounded-2xl p-8 text-center transition cursor-pointer group bg-black/20"
+                  className="relative border-2 border-dashed border-border hover:border-primary/40 rounded-2xl p-8 text-center transition cursor-pointer group bg-secondary/40"
                   onClick={() => document.getElementById('screenshot-input')?.click()}
                 >
                   {screenshot ? (
@@ -205,19 +205,19 @@ export default function Enroll() {
                       <button
                         type="button"
                         onClick={(e) => { e.stopPropagation(); setScreenshot(null) }}
-                        className="text-slate-500 hover:text-red-400 transition ml-1"
+                        className="text-muted-foreground hover:text-red-400 transition ml-1"
                         aria-label="Remove screenshot"
                       >
                         <X className="w-4 h-4" />
                       </button>
                     </div>
                   ) : (
-                    <div className="text-slate-500">
-                      <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:text-orange-400 transition">
+                    <div className="text-muted-foreground">
+                      <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-secondary/60 border border-border flex items-center justify-center group-hover:scale-110 group-hover:text-primary transition">
                         <ImageIcon className="w-6 h-6" />
                       </div>
-                      <p className="text-sm font-medium group-hover:text-slate-300 transition">Click to upload screenshot</p>
-                      <p className="text-xs text-slate-600 mt-1">PNG, JPG or WebP</p>
+                      <p className="text-sm font-medium group-hover:text-foreground/80 transition">Click to upload screenshot</p>
+                      <p className="text-xs text-muted-foreground mt-1">PNG, JPG or WebP</p>
                     </div>
                   )}
                   <input
@@ -251,10 +251,10 @@ export default function Enroll() {
           {/* Right — Payment info */}
           <div className="lg:col-span-2 reveal [transition-delay:120ms]">
             <div className="glass-strong rounded-3xl p-6 sticky top-24">
-              <h2 className="font-display text-lg font-bold text-white mb-5">Payment Details</h2>
+              <h2 className="font-display text-lg font-bold text-foreground mb-5">Payment Details</h2>
 
-              <div className="bg-black/25 border border-white/10 rounded-2xl p-4 flex flex-col items-center mb-5">
-                <p className="text-xs text-slate-400 mb-3 uppercase tracking-widest font-bold">Scan & Pay via UPI</p>
+              <div className="bg-secondary/50 border border-border rounded-2xl p-4 flex flex-col items-center mb-5">
+                <p className="text-xs text-muted-foreground mb-3 uppercase tracking-widest font-bold">Scan & Pay via UPI</p>
                 <div className="bg-white rounded-2xl p-2.5 shadow-glow">
                   <img
                     src={qrUrl}
@@ -265,17 +265,17 @@ export default function Enroll() {
                     }}
                   />
                 </div>
-                <p className="text-xs text-slate-500 mt-3 font-medium">Works with PhonePe, GPay, Paytm & all UPI apps</p>
+                <p className="text-xs text-muted-foreground mt-3 font-medium">Works with PhonePe, GPay, Paytm & all UPI apps</p>
               </div>
 
-              <div className="bg-black/25 border border-white/10 rounded-xl px-4 py-3 mb-4">
-                <p className="text-[11px] text-slate-500 mb-1 font-bold uppercase tracking-wider">UPI ID</p>
+              <div className="bg-secondary/50 border border-border rounded-xl px-4 py-3 mb-4">
+                <p className="text-[11px] text-muted-foreground mb-1 font-bold uppercase tracking-wider">UPI ID</p>
                 <div className="flex items-center justify-between gap-2">
                   <span className="text-orange-400 font-mono font-bold text-sm">{upiId}</span>
                   <button
                     type="button"
                     onClick={() => navigator.clipboard.writeText(upiId)}
-                    className="inline-flex items-center gap-1.5 text-slate-500 hover:text-orange-400 transition text-xs font-semibold"
+                    className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-primary transition text-xs font-semibold"
                   >
                     <Copy className="w-4 h-4" />
                     Copy
@@ -291,7 +291,7 @@ export default function Enroll() {
                     <div className="flex items-baseline gap-2">
                       <p className="font-display text-4xl font-bold text-gradient-orange">₹{coursePrice}</p>
                       {discount.percentage > 0 && (
-                        <span className="text-slate-500 line-through text-xs font-semibold">₹{basePrice}</span>
+                        <span className="text-muted-foreground line-through text-xs font-semibold">₹{basePrice}</span>
                       )}
                     </div>
                     {discount.percentage > 0 && (
@@ -302,7 +302,7 @@ export default function Enroll() {
               )}
 
               <div className="pt-1">
-                <p className="text-[11px] text-slate-500 font-bold uppercase tracking-widest mb-4">How it works</p>
+                <p className="text-[11px] text-muted-foreground font-bold uppercase tracking-widest mb-4">How it works</p>
                 <div className="space-y-0">
                   {[
                     'Scan QR or copy UPI ID',
@@ -315,7 +315,7 @@ export default function Enroll() {
                       <div className="w-5 h-5 rounded-full bg-gradient-to-br from-orange-500 to-orange-700 text-white text-[10px] font-black flex items-center justify-center flex-shrink-0">
                         {i + 1}
                       </div>
-                      <p className="text-slate-300 text-xs leading-relaxed font-medium pt-0.5">{step}</p>
+                      <p className="text-foreground/80 text-xs leading-relaxed font-medium pt-0.5">{step}</p>
                     </div>
                   ))}
                 </div>

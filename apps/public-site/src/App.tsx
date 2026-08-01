@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Routes, Route, NavLink, useLocation } from 'react-router-dom'
-import { ArrowRight, Menu, X, Clock, Mail, MessageCircle } from 'lucide-react'
+import { ArrowRight, Menu, X, Clock, Mail, MessageCircle, Sun, Moon } from 'lucide-react'
 import Home from './pages/Home'
 import Courses from './pages/Courses'
 import CourseDetail from './pages/CourseDetail'
@@ -10,6 +10,22 @@ import { DevtakumiLogo } from './components/Logo'
 import { Button } from './components/ui/button'
 import { PUBLIC_SETTINGS } from './data/settings'
 import { getActiveDiscount } from './api/discount'
+
+function useTheme() {
+  const [theme, setTheme] = useState<'dark' | 'light'>(() =>
+    document.documentElement.classList.contains('light') ? 'light' : 'dark',
+  )
+
+  useEffect(() => {
+    const root = document.documentElement
+    root.classList.toggle('light', theme === 'light')
+    localStorage.setItem('devtakumi-theme', theme)
+    const meta = document.querySelector('meta[name="theme-color"]')
+    if (meta) meta.setAttribute('content', theme === 'light' ? '#f4f6fb' : '#070b13')
+  }, [theme])
+
+  return { theme, toggle: () => setTheme((t) => (t === 'dark' ? 'light' : 'dark')) }
+}
 
 const navLinks = [
   { to: '/', label: 'Home', end: true },
@@ -49,7 +65,7 @@ function AnnouncementBar() {
   )
 }
 
-function Header() {
+function Header({ theme, onToggleTheme }: { theme: 'dark' | 'light'; onToggleTheme: () => void }) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const location = useLocation()
 
@@ -76,8 +92,8 @@ function Header() {
                   className={({ isActive }) =>
                     `px-4 py-2 rounded-full text-sm font-medium transition ${
                       isActive
-                        ? 'bg-primary/15 text-orange-300 shadow-[0_0_20px_-6px_rgba(249,115,22,0.5)]'
-                        : 'text-muted-foreground hover:text-white hover:bg-white/5'
+                        ? 'bg-primary/15 text-primary shadow-[0_0_20px_-6px_rgba(249,115,22,0.5)]'
+                        : 'text-muted-foreground hover:text-foreground hover:bg-muted/60'
                     }`
                   }
                 >
@@ -87,6 +103,15 @@ function Header() {
             </nav>
 
             <div className="flex items-center gap-3">
+              <button
+                type="button"
+                aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+                onClick={onToggleTheme}
+                className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border bg-secondary/40 text-muted-foreground hover:text-foreground transition"
+              >
+                {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              </button>
+
               <Button asChild size="sm" className="hidden md:inline-flex">
                 <NavLink to="/enroll">
                   Enroll Now
@@ -98,7 +123,7 @@ function Header() {
                 type="button"
                 aria-label="Toggle navigation"
                 onClick={() => setMobileOpen((o) => !o)}
-                className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border bg-secondary/40 text-muted-foreground hover:text-white transition"
+                className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border bg-secondary/40 text-muted-foreground hover:text-foreground transition"
               >
                 {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
@@ -115,7 +140,7 @@ function Header() {
                 end={item.end}
                 className={({ isActive }) =>
                   `block px-4 py-3 rounded-xl text-sm font-semibold transition ${
-                    isActive ? 'bg-primary/15 text-orange-300' : 'text-muted-foreground hover:bg-white/5 hover:text-white'
+                    isActive ? 'bg-primary/15 text-primary' : 'text-muted-foreground hover:bg-muted/60 hover:text-foreground'
                   }`
                 }
               >
@@ -134,7 +159,7 @@ function Header() {
 
 function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-border/60 bg-black/40 text-muted-foreground">
+    <footer className="relative overflow-hidden border-t border-border/60 bg-secondary/30 text-muted-foreground">
       <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[280px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-10">
         <div className="grid md:grid-cols-4 gap-10 mb-12">
@@ -207,6 +232,7 @@ function Footer() {
 
 export default function App() {
   const location = useLocation()
+  const { theme, toggle } = useTheme()
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior })
@@ -254,7 +280,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col site-bg text-foreground">
-      <Header />
+      <Header theme={theme} onToggleTheme={toggle} />
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />

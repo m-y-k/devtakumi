@@ -94,7 +94,7 @@ function CountdownCard({ timeLeft, discount }: { timeLeft: TimeLeft; discount: D
           <span className="text-[10px] text-muted-foreground font-medium">Ends {formatMilestoneDate(discount.expiresAt)}</span>
         </div>
 
-        <h3 className="font-display text-base font-bold text-white mb-1">
+        <h3 className="font-display text-base font-bold text-foreground mb-1">
           {discount.percentage > 0
             ? `${discount.percentage}% off if you enroll before the deadline`
             : 'Seats fill fast — next batch launches soon'}
@@ -110,7 +110,7 @@ function CountdownCard({ timeLeft, discount }: { timeLeft: TimeLeft; discount: D
             { v: String(timeLeft.minutes).padStart(2, '0'), l: 'Min' },
             { v: String(timeLeft.seconds).padStart(2, '0'), l: 'Sec' },
           ].map((t, idx) => (
-            <div key={t.l} className="flex flex-col items-center bg-black/40 border border-border rounded-xl px-1 py-2 shadow-inner min-w-0">
+            <div key={t.l} className="flex flex-col items-center bg-secondary/60 border border-border rounded-xl px-1 py-2 shadow-inner min-w-0">
               <span className="text-lg sm:text-xl font-bold text-gradient-orange leading-none tabular-nums">{t.v}</span>
               <span className="text-[8px] sm:text-[9px] text-muted-foreground uppercase tracking-widest font-semibold mt-1">{t.l}</span>
               {idx < 3 && <span className="sr-only">:</span>}
@@ -159,15 +159,15 @@ export default function Home() {
             <div className="reveal">
               <div className="inline-flex items-center gap-2 chip mb-6">
                 <span className="live-dot" />
-                <span className="text-orange-200">Taught by Flipkart SDEs · Now enrolling</span>
+                <span className="text-primary font-semibold">Taught by Flipkart SDEs · Now enrolling</span>
               </div>
 
-              <h1 className="font-display text-[2.6rem] md:text-6xl lg:text-[4.2rem] font-bold leading-[1.04] tracking-tight text-white mb-6">
+              <h1 className="font-display text-[2.6rem] md:text-6xl lg:text-[4.2rem] font-bold leading-[1.04] tracking-tight text-foreground mb-6">
                 One mentor team.
                 <span className="block text-gradient-orange mt-1">One robust roadmap.</span>
               </h1>
 
-              <p className="text-lg md:text-xl text-slate-300 mb-3 font-medium">
+              <p className="text-lg md:text-xl text-slate-300 light:text-slate-600 mb-3 font-medium">
                 From your first array to a full production stack.
               </p>
               <p className="text-muted-foreground mb-8 text-sm md:text-base max-w-xl leading-relaxed">
@@ -195,7 +195,7 @@ export default function Home() {
                   { value: '1:1', label: 'Mentorship', accent: 'from-green-400 to-emerald-300' },
                 ].map((stat, i) => (
                   <div key={i} className="glass rounded-2xl px-4 py-4 text-center">
-                    <div className="text-xl font-black text-white flex items-center justify-center gap-1.5">
+                    <div className="text-xl font-black text-foreground flex items-center justify-center gap-1.5">
                       <span className={`bg-gradient-to-br ${stat.accent} bg-clip-text text-transparent`}>{stat.value}</span>
                       {stat.badge && (
                         <Badge variant="success" className="px-1.5 py-0.5 text-[9px]">{stat.badge}</Badge>
@@ -218,7 +218,7 @@ export default function Home() {
                     <span className="live-dot" /> Live now
                   </span>
                 </div>
-                <p className="font-display text-lg font-bold text-white mb-1">{PUBLIC_SETTINGS.batchSchedule}</p>
+                <p className="font-display text-lg font-bold text-foreground mb-1">{PUBLIC_SETTINGS.batchSchedule}</p>
                 <p className="text-sm text-muted-foreground">Weekend doubt sessions · Weekly assessments · Recordings included</p>
               </div>
 
@@ -233,7 +233,7 @@ export default function Home() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between">
-                          <p className="text-sm font-semibold text-white truncate">{s.title}</p>
+                          <p className="text-sm font-semibold text-foreground truncate">{s.title}</p>
                           {i === 0 ? (
                             <Badge variant="accent" className="shrink-0 ml-2 px-2 py-0 text-[10px]">Now enrolling</Badge>
                           ) : (
@@ -242,7 +242,7 @@ export default function Home() {
                             </span>
                           )}
                         </div>
-                        <div className="mt-1.5 h-1.5 rounded-full bg-white/5 overflow-hidden">
+                        <div className="mt-1.5 h-1.5 rounded-full bg-secondary/50 overflow-hidden">
                           <div
                             className={`h-full rounded-full bg-gradient-to-r ${s.accent}`}
                             style={{ width: i === 0 ? '45%' : '0%', opacity: i === 0 ? 1 : 0.3 }}
@@ -279,12 +279,12 @@ export default function Home() {
           {howItWorks.map((item, i) => (
             <div key={item.step} className="gradient-card p-5">
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary/20 to-amber-500/10 border border-primary/25 text-orange-300 text-sm font-black flex items-center justify-center">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary/20 to-amber-500/10 border border-primary/25 text-primary text-sm font-black flex items-center justify-center">
                   {item.step}
                 </div>
                 {i < 3 && <span className="hidden lg:block text-muted-foreground/40">────</span>}
               </div>
-              <p className="font-display font-bold text-white text-sm mb-1">{item.title}</p>
+              <p className="font-display font-bold text-foreground text-sm mb-1">{item.title}</p>
               <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
             </div>
           ))}
@@ -295,7 +295,7 @@ export default function Home() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 lg:pb-24">
         <div className="text-center mb-12 reveal">
           <span className="eyebrow justify-center mb-3">Structured Learning</span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-white tracking-tight mb-4">The Path</h2>
+          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground tracking-tight mb-4">The Path</h2>
           <p className="text-muted-foreground max-w-xl mx-auto text-sm md:text-base">
             Three sequential stages, each a checkpoint — not a package deal. Progress only if the prior stage is cleared.
           </p>
@@ -314,7 +314,7 @@ export default function Home() {
                   <Badge variant="muted">{stage.badge}</Badge>
                 </div>
 
-                <h3 className="font-display text-lg font-bold text-white mb-2">{stage.title}</h3>
+                <h3 className="font-display text-lg font-bold text-foreground mb-2">{stage.title}</h3>
                 <div className="flex items-baseline gap-2 mb-3 flex-wrap">
                   {discount.percentage > 0 ? (
                     <>
@@ -351,7 +351,7 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 reveal">
             <span className="eyebrow justify-center mb-3">Everything you get</span>
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-white tracking-tight">What's Included</h2>
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground tracking-tight">What's Included</h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -364,7 +364,7 @@ export default function Home() {
                 <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${f.tint} border border-white/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
                   <f.icon className="w-6 h-6" />
                 </div>
-                <h3 className="font-display font-bold text-white mb-1.5 text-sm group-hover:text-primary transition">{f.title}</h3>
+                <h3 className="font-display font-bold text-foreground mb-1.5 text-sm group-hover:text-primary transition">{f.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{f.desc}</p>
               </div>
             ))}
@@ -377,7 +377,7 @@ export default function Home() {
         <div className="grid lg:grid-cols-2 gap-6 items-center">
           <div className="reveal">
             <span className="eyebrow mb-3">Your Mentors</span>
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-white tracking-tight mb-5">Why Learn From Us</h2>
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground tracking-tight mb-5">Why Learn From Us</h2>
             <p className="text-muted-foreground leading-relaxed text-sm md:text-base max-w-lg">
               We are active engineering professionals who teach what we actually design and code on the job.
               No academic textbooks or outdated syllabi — everything is taught with real-world scale and practical code tracing.
@@ -400,7 +400,7 @@ export default function Home() {
                 👨‍💻
               </div>
               <div>
-                <h3 className="font-display text-xl font-bold text-white">Flipkart SDE Mentors</h3>
+                <h3 className="font-display text-xl font-bold text-foreground">Flipkart SDE Mentors</h3>
                 <p className="text-primary font-bold text-xs mb-3 uppercase tracking-wider">Senior Software Engineers @ Flipkart</p>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   From basic variables to production-grade distributed architectures — optimized for depth, not hype.
@@ -415,8 +415,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <p className="text-xs text-muted-foreground">A small team that knows your name.</p>
-            </div>
+              <p className="text-xs text-muted-foreground">A small team that knows your name.</p>            </div>
             <Button asChild className="w-full mt-6">
               <Link to="/enroll">Start Your Journey →</Link>
             </Button>

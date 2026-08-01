@@ -28,7 +28,7 @@ export default function Courses() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="text-center mb-12 reveal">
           <span className="eyebrow justify-center mb-3">Three Stages</span>
-          <h1 className="font-display text-3xl md:text-5xl font-bold text-white tracking-tight mb-4">All Courses</h1>
+          <h1 className="font-display text-3xl md:text-5xl font-bold text-foreground tracking-tight mb-4">All Courses</h1>
           <p className="text-muted-foreground max-w-xl mx-auto text-sm md:text-base">
             Sequential courses designed as checkpoints. Each one builds on the last.
           </p>
@@ -54,7 +54,7 @@ export default function Courses() {
                     )}
                   </div>
 
-                  <h2 className={`font-display text-xl font-bold text-white mb-2 ${color.hoverAccent} transition`}>{course.title}</h2>
+                  <h2 className={`font-display text-xl font-bold text-foreground mb-2 ${color.hoverAccent} transition`}>{course.title}</h2>
 
                   <div className="flex items-baseline gap-2 mb-3 flex-wrap">
                     {discount.percentage > 0 ? (

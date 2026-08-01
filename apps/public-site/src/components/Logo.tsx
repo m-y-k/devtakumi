@@ -23,7 +23,7 @@ export function DevtakumiLogo({ size = 'md', className = '', withWordmark = fals
         draggable={false}
       />
       {withWordmark && (
-        <span className="font-display font-bold text-white leading-none tracking-tight">
+        <span className="font-display font-bold text-foreground leading-none tracking-tight">
           dev<span className="text-orange-500">takumi</span>
         </span>
       )}

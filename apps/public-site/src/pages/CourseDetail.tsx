@@ -36,7 +36,7 @@ function CurriculumTree({ months }: { months: MonthItem[] }) {
           <div key={m.monthNumber} className={`glass rounded-2xl overflow-hidden transition-colors ${open ? 'border-primary/30' : ''}`}>
             <button
               onClick={() => toggleMonth(m.monthNumber)}
-              className="w-full text-left px-5 py-4 flex items-center justify-between hover:bg-white/[0.03] transition group"
+              className="w-full text-left px-5 py-4 flex items-center justify-between hover:bg-secondary/40 transition group"
             >
               <div className="flex items-center gap-4">
                 <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-display font-bold text-sm transition-all ${
@@ -47,7 +47,7 @@ function CurriculumTree({ months }: { months: MonthItem[] }) {
                   {m.monthNumber}
                 </div>
                 <div>
-                  <span className="font-display font-bold text-sm text-white">Month {m.monthNumber}</span>
+                  <span className="font-display font-bold text-sm text-foreground">Month {m.monthNumber}</span>
                   <p className="text-muted-foreground text-xs mt-0.5">{m.title}</p>
                 </div>
               </div>
@@ -60,16 +60,16 @@ function CurriculumTree({ months }: { months: MonthItem[] }) {
             </button>
 
             {open && (
-              <div className="px-5 pb-4 pt-1 space-y-1 bg-black/20 border-t border-border/60">
+              <div className="px-5 pb-4 pt-1 space-y-1 bg-secondary/40 border-t border-border/60">
                 {m.weeks.map((w) => {
                   const weekOpen = expandedWeeks.has(w.weekNumber)
                   return (
                     <div key={w.weekNumber}>
                       <button
                         onClick={() => toggleWeek(w.weekNumber)}
-                        className="w-full text-left flex items-center justify-between py-2.5 px-3 rounded-xl hover:bg-white/[0.04] transition group"
+                        className="w-full text-left flex items-center justify-between py-2.5 px-3 rounded-xl hover:bg-secondary/40 transition group"
                       >
-                        <span className={`text-sm font-semibold transition ${weekOpen ? 'text-primary' : 'text-slate-300 group-hover:text-white'}`}>
+                        <span className={`text-sm font-semibold transition ${weekOpen ? 'text-primary' : 'text-muted-foreground group-hover:text-foreground'}`}>
                           Week {w.weekNumber}: {w.title}
                         </span>
                         <div className="flex items-center gap-2">
@@ -85,7 +85,7 @@ function CurriculumTree({ months }: { months: MonthItem[] }) {
                               <span className="text-[10px] font-mono text-primary bg-primary/10 px-1.5 py-0.5 rounded flex-shrink-0 font-bold border border-primary/25">
                                 #{c.globalClassNumber}
                               </span>
-                              <span className="text-xs text-muted-foreground leading-snug group-hover/class:text-slate-300 transition">
+                              <span className="text-xs text-muted-foreground leading-snug group-hover/class:text-foreground transition">
                                 {c.title}
                               </span>
                             </div>
@@ -160,13 +160,13 @@ export default function CourseDetail() {
               <span className="live-dot" />
               {course.durationMonths} months · {totalClasses} live classes
             </div>
-            <h1 className="font-display text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">{course.title}</h1>
+            <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground tracking-tight mb-4">{course.title}</h1>
             <p className="text-muted-foreground mb-8 leading-relaxed text-sm md:text-base max-w-2xl">{course.description}</p>
 
             {curriculum && curriculum.months.length > 0 && (
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <h2 className="font-display text-lg font-bold text-white">Curriculum</h2>
+                  <h2 className="font-display text-lg font-bold text-foreground">Curriculum</h2>
                   <span className="text-xs text-muted-foreground font-medium">
                     {totalClasses} classes across {curriculum.months.length} months
                   </span>
@@ -225,7 +225,7 @@ export default function CourseDetail() {
                     'WhatsApp doubt support',
                     'Direct mentorship from Flipkart SDEs',
                   ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-2.5 text-sm text-slate-300 font-medium">
+                    <div key={i} className="flex items-center gap-2.5 text-sm text-foreground/80 font-medium">
                       <span className="w-5 h-5 rounded-full bg-primary/15 border border-primary/25 flex items-center justify-center flex-shrink-0">
                         <Check className="w-3 h-3 text-primary" />
                       </span>
