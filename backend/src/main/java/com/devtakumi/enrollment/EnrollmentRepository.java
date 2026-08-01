@@ -1,0 +1,11 @@
+package com.devtakumi.enrollment;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+import java.util.UUID;
+
+public interface EnrollmentRepository extends JpaRepository<Enrollment, UUID> {
+
+    List<Enrollment> findByUserId(UUID userId);
+}

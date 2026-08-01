@@ -1,4 +1,4 @@
-# OutOfMemoryAcademy — Phase-Wise Build Plan
+# DevTakumi — Phase-Wise Build Plan
 
 Each phase is **independently testable** before moving to the next. Phases are ordered to minimize rework (aligned with Section 23 of `technical-spec.md`).
 
@@ -47,7 +47,7 @@ cd apps/student-portal && npm run dev          # → loads on :5174
 # Login as admin
 curl -X POST http://localhost:8080/api/auth/login \
   -H "Content-Type: application/json" \
-  -d '{"email":"admin@ooma.local","password":"admin12345"}'
+  -d '{"email":"admin@devtakumi.local","password":"admin12345"}'
 # → { accessToken, refreshToken, user }
 
 # Protected route without token → 401
@@ -282,7 +282,7 @@ UI: open question → write Java → Run shows stdout → Submit shows per-test-
 **Goal:** Secure self-hosted video streaming.
 
 **Deliverables:**
-- `VideoStorageService` (local disk under `/var/ooma/recordings/` or configurable)
+- `VideoStorageService` (local disk under `/var/devtakumi/recordings/` or configurable)
 - `POST /api/admin/classes/{id}/recording` (multipart upload)
 - `GET /api/classes/{classId}/recording-url` → short-lived signed token (10 min)
 - `GET /api/stream/recordings/{token}` → Range-request streaming

@@ -1,4 +1,4 @@
-# OutOfMemoryAcademy
+# DevTakumi
 
 A coding bootcamp platform with three sequential gated courses (DSA Foundations, Backend Engineering, Full-Stack Development), taught by Mohammad Yusuf Khan (SDE @ Flipkart).
 
@@ -33,7 +33,7 @@ cp ../.env.example .env   # edit secrets as needed
 mvn spring-boot:run
 ```
 
-The app seeds an admin user (`admin@ooma.local` / `admin12345`) and curriculum data on first startup.
+The app seeds an admin user (`admin@devtakumi.local` / `admin12345`) and curriculum data on first startup.
 
 ### 3. Start frontends
 
@@ -61,9 +61,9 @@ curl http://localhost:5174                         # → Student portal loads
 ## Project Structure
 
 ```
-outofmemory-academy/
+devtakumi-academy/
 ├── backend/                          # Spring Boot API
-│   ├── src/main/java/com/ooma/
+│   ├── src/main/java/com/devtakumi/
 │   │   ├── auth/                     # JWT auth, login/refresh/reset
 │   │   ├── users/                    # User entity, /api/me
 │   │   ├── courses/                  # Course/Month/Week/ClassSession

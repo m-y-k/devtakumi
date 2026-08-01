@@ -2,10 +2,10 @@
 -- Password for both accounts: Password@123
 -- Hash generated with BCryptPasswordEncoder(10)
 INSERT INTO users (id, name, email, phone, password_hash, role, created_at) VALUES
-('u0000001-0001-4000-8000-000000000001', 'Shezan', 'shezan@ooma.dev', NULL,
+('u0000001-0001-4000-8000-000000000001', 'Shezan', 'shezan@devtakumi.dev', NULL,
  '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lh9i',
  'STUDENT', NOW()),
-('u0000001-0002-4000-8000-000000000001', 'Arham',  'arham@ooma.dev',  NULL,
+('u0000001-0002-4000-8000-000000000001', 'Arham',  'arham@devtakumi.dev',  NULL,
  '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lh9i',
  'STUDENT', NOW());
 

@@ -11,11 +11,11 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.ooma</groupId>
-    <artifactId>ooma-backend</artifactId>
+    <groupId>com.devtakumi</groupId>
+    <artifactId>devtakumi-backend</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>OutOfMemoryAcademy Backend</name>
-    <description>OutOfMemoryAcademy Spring Boot API</description>
+    <name>DevTakumi Backend</name>
+    <description>DevTakumi Spring Boot API</description>
 
     <properties>
         <java.version>21</java.version>

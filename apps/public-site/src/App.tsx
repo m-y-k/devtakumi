@@ -200,13 +200,6 @@ function Footer() {
           <p>© 2026 Devtakumi. All rights reserved.</p>
           <p>{PUBLIC_SETTINGS.classCount} live classes · 3 sequential stages · Small batches</p>
         </div>
-
-        {/* Watermark */}
-        <div className="mt-8 select-none pointer-events-none text-center overflow-hidden" aria-hidden="true">
-          <span className="font-display font-bold text-[18vw] lg:text-[12rem] leading-none tracking-tight bg-gradient-to-b from-white/[0.05] to-transparent bg-clip-text text-transparent">
-            Devtakumi
-          </span>
-        </div>
       </div>
     </footer>
   )
@@ -214,6 +207,22 @@ function Footer() {
 
 export default function App() {
   const location = useLocation()
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior })
+  }, [location.pathname])
+
+  useEffect(() => {
+    const onMove = (e: MouseEvent) => {
+      const card = (e.target as HTMLElement).closest('.gradient-card') as HTMLElement | null
+      if (!card) return
+      const rect = card.getBoundingClientRect()
+      card.style.setProperty('--mx', `${e.clientX - rect.left}px`)
+      card.style.setProperty('--my', `${e.clientY - rect.top}px`)
+    }
+    document.addEventListener('mousemove', onMove)
+    return () => document.removeEventListener('mousemove', onMove)
+  }, [])
 
   useEffect(() => {
     const io = new IntersectionObserver(

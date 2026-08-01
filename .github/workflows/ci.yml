@@ -14,9 +14,9 @@ jobs:
         image: mysql:8.0
         env:
           MYSQL_ROOT_PASSWORD: rootpassword
-          MYSQL_DATABASE: ooma
-          MYSQL_USER: ooma
-          MYSQL_PASSWORD: oomapassword
+          MYSQL_DATABASE: devtakumi
+          MYSQL_USER: devtakumi
+          MYSQL_PASSWORD: devtakumipassword
         options: >-
           --health-cmd "mysqladmin ping -h localhost"
           --health-interval 10s
@@ -36,9 +36,9 @@ jobs:
         run: mvn verify -B
         working-directory: backend
         env:
-          SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/ooma?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
-          SPRING_DATASOURCE_USERNAME: ooma
-          SPRING_DATASOURCE_PASSWORD: oomapassword
+          SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/devtakumi?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+          SPRING_DATASOURCE_USERNAME: devtakumi
+          SPRING_DATASOURCE_PASSWORD: devtakumipassword
           JWT_SECRET: test-secret-that-is-at-least-256-bits-long-for-testing-purposes-only
 
   frontend-public:

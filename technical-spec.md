@@ -1,4 +1,4 @@
-# OutOfMemoryAcademy — Full Technical Specification
+# DevTakumi — Full Technical Specification
 
 **Version:** 1.0
 **Purpose of this document:** This is a complete, self-contained build spec for an AI coding agent (Cursor / Antigravity) to implement without further clarification. Every entity, endpoint, page, and business rule needed to build the product is defined here. Where a decision was made on the product owner's behalf, it is explicitly flagged as an **ASSUMPTION** — the agent should implement the assumption as stated unless told otherwise, not invent its own alternative.
@@ -9,7 +9,7 @@
 
 ## 1. Product Overview
 
-OutOfMemoryAcademy is a coding bootcamp offering three sequential, gated courses, taught by a working engineer (Mohammad Yusuf Khan, SDE @ Flipkart). The product has **two separate front-end applications** sharing **one backend API**:
+DevTakumi is a coding bootcamp offering three sequential, gated courses, taught by a working engineer (Mohammad Yusuf Khan, SDE @ Flipkart). The product has **two separate front-end applications** sharing **one backend API**:
 
 1. **Public Marketing Site** (`apps/public-site`) — unauthenticated. Shows the three courses, curriculum, pricing, mentor bio, and lets a visitor submit an enrollment request with UPI payment proof.
 2. **Student Portal** (`apps/student-portal`) — authenticated LMS. Sign-in only (no public self-registration — accounts are created after an admin approves an enrollment request). Contains course navigation, class pages (lecture + notes + questions), weekly assessments, and an in-browser code runner.
@@ -345,7 +345,7 @@ Code execution (auto-run + auto-grade) is **required for DSA Foundations (Course
 
 **Recordings** are not linked directly to a public Zoom/YouTube URL (course content shouldn't be trivially shareable). Flow (cost-minimized, self-hosted):
 1. After the live session, admin downloads the Zoom/Meet cloud recording (MP4) and uploads it through the Admin Console (Section 13.4).
-2. Backend stores the file on the VM's local disk / attached block volume under a non-web-servable directory (e.g. `/var/ooma/recordings/{classSessionId}.mp4`), storing the path on `ClassSession.recordingProviderVideoId` (repurposed as an internal storage key, not a third-party ID).
+2. Backend stores the file on the VM's local disk / attached block volume under a non-web-servable directory (e.g. `/var/devtakumi/recordings/{classSessionId}.mp4`), storing the path on `ClassSession.recordingProviderVideoId` (repurposed as an internal storage key, not a third-party ID).
 3. When a student requests to watch, the backend does **not** expose a static file URL. Instead:
    - `GET /api/classes/{id}/recording-url` checks the requester actually has an active enrollment for that class's course, then returns a short-lived signed URL (a backend-issued token with an expiry, e.g. 10 minutes, embedded as a query param) pointing at a streaming endpoint.
    - `GET /api/stream/recordings/{token}` validates the token and streams the file with proper `Range` header / `Accept-Ranges: bytes` support (Spring's `ResourceHttpRequestHandler` or a manual `ResponseEntity<Resource>` with range handling) so the browser's native `<video>` player can seek without downloading the whole file — no third-party video service required.
@@ -644,7 +644,7 @@ CREATE TABLE announcements (
 ) ENGINE=InnoDB;
 ```
 
-**Spring config notes:** add the `mysql-connector-j` dependency (not `postgresql`), set `spring.datasource.url=jdbc:mysql://<host>:3306/ooma?useSSL=true&serverTimezone=UTC`, and `spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect`. Use **Flyway** for migrations (Flyway supports MySQL natively) — write the above as a versioned migration (e.g. `V1__init_schema.sql`), don't rely on `ddl-auto`.
+**Spring config notes:** add the `mysql-connector-j` dependency (not `postgresql`), set `spring.datasource.url=jdbc:mysql://<host>:3306/devtakumi?useSSL=true&serverTimezone=UTC`, and `spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect`. Use **Flyway** for migrations (Flyway supports MySQL natively) — write the above as a versioned migration (e.g. `V1__init_schema.sql`), don't rely on `ddl-auto`.
 
 ---
 
@@ -668,7 +668,7 @@ Abstract behind two interfaces so the underlying storage can be swapped without 
 - `StorageService` — for notes attachments, payment screenshots, project submission files.
 - `VideoStorageService` — for class recordings (Section 12).
 
-**Default implementation for v1: local filesystem**, not S3/MinIO. Store uploads under a configurable root directory (e.g. `/var/ooma/storage/{category}/{uuid}.{ext}`), never inside a web-servable static folder. Serve everything through authenticated backend endpoints (pre-signed-style short-lived tokens for downloads, standard multipart upload endpoints for uploads) rather than direct file URLs — this gets you the same access-control behavior as a signed S3 URL without needing an object storage service at all, at zero extra cost or moving parts.
+**Default implementation for v1: local filesystem**, not S3/MinIO. Store uploads under a configurable root directory (e.g. `/var/devtakumi/storage/{category}/{uuid}.{ext}`), never inside a web-servable static folder. Serve everything through authenticated backend endpoints (pre-signed-style short-lived tokens for downloads, standard multipart upload endpoints for uploads) rather than direct file URLs — this gets you the same access-control behavior as a signed S3 URL without needing an object storage service at all, at zero extra cost or moving parts.
 
 **Why not MinIO (the usual free/open-source S3-compatible default)?** As of this spec, MinIO is a poor recommendation: it stripped the admin console from its open-source Community Edition in May 2025, stopped publishing pre-built binaries/Docker images in October 2025 (source-only distribution), and by December 2025 the maintainers put the project into maintenance mode — the GitHub repo shows archived/read-only. It still runs if you already have it, but it's not a healthy pick for a new build. Don't use it.
 
@@ -693,9 +693,9 @@ Minimum required transactional emails:
 ## 19. Repository / Folder Structure
 
 ```
-outofmemory-academy/
+devtakumi-academy/
 ├── backend/                          # Spring Boot (Maven)
-│   ├── src/main/java/com/ooma/
+│   ├── src/main/java/com/devtakumi/
 │   │   ├── auth/                     # JWT filter, login/refresh/reset endpoints
 │   │   ├── users/
 │   │   ├── courses/                  # Course, Month, Week, ClassSession
