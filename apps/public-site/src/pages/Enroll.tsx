@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { AlertCircle, Check, CheckCircle2, Copy, Image as ImageIcon, Loader2, Lock, X } from 'lucide-react'
 import { getCourses, getUpiId, submitEnrollment, CourseSummary } from '../api/client'
 import { getActiveDiscount, calculateDiscountedPrice } from '../api/discount'
-
-const inputClass =
-  'w-full bg-black/30 border border-white/10 text-white rounded-xl px-4 py-3 placeholder-slate-600 font-medium text-sm transition'
+import { Button } from '../components/ui/button'
+import { Input } from '../components/ui/input'
+import { Label } from '../components/ui/label'
 
 export default function Enroll() {
   const [searchParams] = useSearchParams()
@@ -70,9 +71,7 @@ export default function Enroll() {
           <div className="relative w-24 h-24 mx-auto mb-8">
             <div className="absolute inset-0 bg-green-500/30 blur-2xl rounded-full" />
             <div className="relative w-24 h-24 bg-gradient-to-br from-green-500 to-emerald-600 rounded-3xl flex items-center justify-center shadow-glow">
-              <svg className="w-12 h-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+              <CheckCircle2 className="w-12 h-12 text-white" />
             </div>
           </div>
           <h1 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">Request Submitted! 🎉</h1>
@@ -109,53 +108,50 @@ export default function Enroll() {
             <form onSubmit={handleSubmit} className="space-y-5 glass rounded-3xl p-6 md:p-8">
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-sm font-semibold text-slate-300 mb-2">Full Name *</label>
-                  <input
+                  <Label htmlFor="enroll-name">Full Name *</Label>
+                  <Input
                     required
                     type="text"
                     id="enroll-name"
                     value={form.name}
                     onChange={e => setForm(p => ({ ...p, name: e.target.value }))}
                     placeholder="Dev Sharma"
-                    className={inputClass}
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-300 mb-2">Email Address *</label>
-                  <input
+                  <Label htmlFor="enroll-email">Email Address *</Label>
+                  <Input
                     required
                     type="email"
                     id="enroll-email"
                     value={form.email}
                     onChange={e => setForm(p => ({ ...p, email: e.target.value }))}
                     placeholder="you@example.com"
-                    className={inputClass}
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-300 mb-2">Phone Number *</label>
-                  <input
+                  <Label htmlFor="enroll-phone">Phone Number *</Label>
+                  <Input
                     required
                     type="tel"
                     id="enroll-phone"
                     value={form.phone}
                     onChange={e => setForm(p => ({ ...p, phone: e.target.value }))}
                     placeholder="+91 98765 43210"
-                    className={inputClass}
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-300 mb-2">Select Course *</label>
+                  <Label htmlFor="enroll-course">Select Course *</Label>
                   <div className="relative">
                     <select
                       required
                       id="enroll-course"
                       value={selectedCourseId}
                       onChange={handleCourseChange}
-                      className={`${inputClass} appearance-none cursor-pointer pr-10`}
+                      className="w-full bg-black/30 border border-white/10 text-white rounded-xl px-4 py-3 placeholder-slate-600 font-medium text-sm transition cursor-pointer appearance-none pr-10"
                     >
                       <option value="" className="bg-slate-950">Choose a course...</option>
                       {courses.map(c => {
@@ -175,41 +171,36 @@ export default function Enroll() {
                   </div>
                   {selectedCourseId && courses.find(c => c.id === selectedCourseId)?.prerequisiteCourseTitle && (
                     <p className="text-amber-500 text-xs font-semibold mt-2 flex items-center gap-1">
-                      🔒 Unlocks after completing {courses.find(c => c.id === selectedCourseId)?.prerequisiteCourseTitle}
+                      <Lock className="w-3 h-3" />
+                      Unlocks after completing {courses.find(c => c.id === selectedCourseId)?.prerequisiteCourseTitle}
                     </p>
                   )}
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-slate-300 mb-2">
-                  UPI Transaction Reference / UTR Number *
-                </label>
-                <input
+                <Label htmlFor="enroll-utr">UPI Transaction Reference / UTR Number *</Label>
+                <Input
                   required
                   type="text"
                   id="enroll-utr"
                   value={form.upiReference}
                   onChange={e => setForm(p => ({ ...p, upiReference: e.target.value }))}
                   placeholder="e.g. 407212345678"
-                  className={`${inputClass} font-mono`}
+                  className="font-mono"
                 />
                 <p className="text-slate-500 text-xs mt-1.5 font-medium">Find this in your UPI app's transaction history</p>
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-slate-300 mb-2">
-                  Payment Screenshot <span className="text-slate-500 font-normal">(optional but recommended)</span>
-                </label>
+                <Label htmlFor="screenshot-input">Payment Screenshot <span className="text-slate-500 font-normal">(optional but recommended)</span></Label>
                 <div
                   className="relative border-2 border-dashed border-white/10 hover:border-orange-500/40 rounded-2xl p-8 text-center transition cursor-pointer group bg-black/20"
                   onClick={() => document.getElementById('screenshot-input')?.click()}
                 >
                   {screenshot ? (
                     <div className="flex items-center justify-center gap-2 text-green-400 font-semibold text-sm">
-                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
+                      <Check className="w-5 h-5" />
                       <span className="break-all">{screenshot.name}</span>
                       <button
                         type="button"
@@ -217,15 +208,13 @@ export default function Enroll() {
                         className="text-slate-500 hover:text-red-400 transition ml-1"
                         aria-label="Remove screenshot"
                       >
-                        ✕
+                        <X className="w-4 h-4" />
                       </button>
                     </div>
                   ) : (
                     <div className="text-slate-500">
                       <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:text-orange-400 transition">
-                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
+                        <ImageIcon className="w-6 h-6" />
                       </div>
                       <p className="text-sm font-medium group-hover:text-slate-300 transition">Click to upload screenshot</p>
                       <p className="text-xs text-slate-600 mt-1">PNG, JPG or WebP</p>
@@ -243,29 +232,19 @@ export default function Enroll() {
 
               {error && (
                 <div className="bg-red-500/10 border border-red-500/25 rounded-2xl px-4 py-3 text-red-400 text-sm font-semibold flex items-center gap-2">
-                  <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
-                  </svg>
+                  <AlertCircle className="w-4 h-4 flex-shrink-0" />
                   {error}
                 </div>
               )}
 
-              <button
-                type="submit"
-                id="enroll-submit"
-                disabled={submitting}
-                className="btn-primary w-full !py-4 !text-base disabled:opacity-50 disabled:cursor-not-allowed"
-              >
+              <Button type="submit" id="enroll-submit" disabled={submitting} className="w-full" size="lg">
                 {submitting ? (
                   <span className="flex items-center justify-center gap-2">
-                    <svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                    </svg>
+                    <Loader2 className="animate-spin w-5 h-5" />
                     Submitting...
                   </span>
                 ) : 'Submit Enrollment Request →'}
-              </button>
+              </Button>
             </form>
           </div>
 
@@ -298,9 +277,7 @@ export default function Enroll() {
                     onClick={() => navigator.clipboard.writeText(upiId)}
                     className="inline-flex items-center gap-1.5 text-slate-500 hover:text-orange-400 transition text-xs font-semibold"
                   >
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
-                    </svg>
+                    <Copy className="w-4 h-4" />
                     Copy
                   </button>
                 </div>

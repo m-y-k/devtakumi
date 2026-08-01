@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import { Routes, Route, NavLink, useLocation } from 'react-router-dom'
+import { ArrowRight, Menu, X, Clock, Mail, MessageCircle } from 'lucide-react'
 import Home from './pages/Home'
 import Courses from './pages/Courses'
 import CourseDetail from './pages/CourseDetail'
 import Enroll from './pages/Enroll'
 import About from './pages/About'
 import { DevtakumiLogo } from './components/Logo'
+import { Button } from './components/ui/button'
 import { PUBLIC_SETTINGS } from './data/settings'
 import { getActiveDiscount } from './api/discount'
 
@@ -38,9 +40,7 @@ function AnnouncementBar() {
             className="shrink-0 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-white/15 hover:bg-white/25 transition text-orange-50"
           >
             Claim now
-            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
+            <ArrowRight className="w-3 h-3" />
           </NavLink>
         </div>
       </div>
@@ -59,14 +59,14 @@ function Header() {
   return (
     <>
       <AnnouncementBar />
-      <header className="sticky top-0 z-50 border-b border-white/5 bg-[#05070d]/85 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <NavLink to="/" aria-label="Devtakumi home" className="flex items-center shrink-0">
               <DevtakumiLogo size="md" withWordmark />
             </NavLink>
 
-            <nav className="hidden md:flex items-center gap-1 rounded-full bg-white/[0.03] border border-white/5 p-1">
+            <nav className="hidden md:flex items-center gap-1 rounded-full border border-border/60 bg-secondary/40 p-1">
               {navLinks.map((item) => (
                 <NavLink
                   key={item.to}
@@ -75,8 +75,8 @@ function Header() {
                   className={({ isActive }) =>
                     `px-4 py-2 rounded-full text-sm font-medium transition ${
                       isActive
-                        ? 'bg-orange-500/15 text-orange-300 shadow-[0_0_20px_-6px_rgba(249,115,22,0.5)]'
-                        : 'text-slate-400 hover:text-white hover:bg-white/5'
+                        ? 'bg-primary/15 text-orange-300 shadow-[0_0_20px_-6px_rgba(249,115,22,0.5)]'
+                        : 'text-muted-foreground hover:text-white hover:bg-white/5'
                     }`
                   }
                 >
@@ -86,36 +86,27 @@ function Header() {
             </nav>
 
             <div className="flex items-center gap-3">
-              <NavLink to="/enroll" className="btn-primary hidden md:inline-flex !py-2.5 !px-5 !text-sm">
-                Enroll Now
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </NavLink>
+              <Button asChild size="sm" className="hidden md:inline-flex">
+                <NavLink to="/enroll">
+                  Enroll Now
+                  <ArrowRight className="w-4 h-4" />
+                </NavLink>
+              </Button>
 
               <button
                 type="button"
                 aria-label="Toggle navigation"
                 onClick={() => setMobileOpen((o) => !o)}
-                className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl border border-white/10 bg-white/5 text-slate-300 hover:text-white transition"
+                className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border bg-secondary/40 text-muted-foreground hover:text-white transition"
               >
-                {mobileOpen ? (
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                ) : (
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 7h16M4 12h16M4 17h16" />
-                  </svg>
-                )}
+                {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
           </div>
         </div>
 
-        {/* Mobile menu */}
         {mobileOpen && (
-          <div className="md:hidden border-t border-white/5 bg-[#070b13]/95 backdrop-blur-xl px-4 pb-4 pt-2 space-y-1">
+          <div className="md:hidden border-t border-border/60 bg-background/95 backdrop-blur-xl px-4 pb-4 pt-2 space-y-1">
             {navLinks.map((item) => (
               <NavLink
                 key={item.to}
@@ -123,16 +114,16 @@ function Header() {
                 end={item.end}
                 className={({ isActive }) =>
                   `block px-4 py-3 rounded-xl text-sm font-semibold transition ${
-                    isActive ? 'bg-orange-500/15 text-orange-300' : 'text-slate-300 hover:bg-white/5'
+                    isActive ? 'bg-primary/15 text-orange-300' : 'text-muted-foreground hover:bg-white/5 hover:text-white'
                   }`
                 }
               >
                 {item.label}
               </NavLink>
             ))}
-            <NavLink to="/enroll" className="btn-primary w-full mt-2">
-              Enroll Now
-            </NavLink>
+            <Button asChild className="w-full mt-2">
+              <NavLink to="/enroll">Enroll Now</NavLink>
+            </Button>
           </div>
         )}
       </header>
@@ -142,63 +133,71 @@ function Header() {
 
 function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-[#04060b] text-slate-400 border-t border-white/5">
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[280px] bg-orange-500/[0.06] blur-[120px] rounded-full pointer-events-none" />
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8">
+    <footer className="relative overflow-hidden border-t border-border/60 bg-black/40 text-muted-foreground">
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[280px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-10">
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           <div className="md:col-span-2">
             <NavLink to="/" className="inline-block mb-4">
               <DevtakumiLogo size="md" withWordmark />
             </NavLink>
-            <p className="text-sm text-slate-500 leading-relaxed max-w-sm">
+            <p className="text-sm text-muted-foreground/80 leading-relaxed max-w-sm">
               Taught by Flipkart SDEs. One comprehensive roadmap from your first array to full production systems.
             </p>
-            <div className="inline-flex items-center gap-2 mt-4 text-xs text-slate-500">
+            <div className="inline-flex items-center gap-2 mt-4 text-xs text-muted-foreground">
               <span className="live-dot" />
-              <span className="font-semibold text-slate-400">{PUBLIC_SETTINGS.batchSchedule}</span>
+              <span className="font-semibold text-muted-foreground">{PUBLIC_SETTINGS.batchSchedule}</span>
             </div>
           </div>
 
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4">Explore</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground/70 mb-4">Explore</p>
             <div className="space-y-2.5 text-sm">
               {navLinks.map((link) => (
                 <NavLink
                   key={link.to}
                   to={link.to}
                   end={link.end}
-                  className="block text-slate-400 hover:text-orange-400 transition"
+                  className="block text-muted-foreground hover:text-primary transition"
                 >
                   {link.label}
                 </NavLink>
               ))}
-              <NavLink to="/enroll" className="block text-orange-400 hover:text-orange-300 font-semibold transition">
+              <NavLink to="/enroll" className="block text-primary hover:text-orange-300 font-semibold transition">
                 Enroll →
               </NavLink>
             </div>
           </div>
 
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4">Contact</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground/70 mb-4">Contact</p>
             <div className="space-y-2.5 text-sm">
-              <a href={`mailto:${PUBLIC_SETTINGS.contactEmail}`} className="block text-slate-400 hover:text-orange-400 transition">
+              <a
+                href={`mailto:${PUBLIC_SETTINGS.contactEmail}`}
+                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition"
+              >
+                <Mail className="w-4 h-4" />
                 {PUBLIC_SETTINGS.contactEmail}
               </a>
               <a
                 href={`https://wa.me/${PUBLIC_SETTINGS.whatsappNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-green-400 hover:text-green-300 transition"
+                className="flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition"
               >
+                <MessageCircle className="w-4 h-4" />
                 WhatsApp {PUBLIC_SETTINGS.whatsappDisplay}
               </a>
             </div>
           </div>
         </div>
 
-        <div className="pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-600">
+        <div className="pt-6 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground/70">
           <p>© 2026 Devtakumi. All rights reserved.</p>
-          <p>{PUBLIC_SETTINGS.classCount} live classes · 3 sequential stages · Small batches</p>
+          <p className="inline-flex items-center gap-1.5">
+            <Clock className="w-3.5 h-3.5" />
+            {PUBLIC_SETTINGS.classCount} live classes · 3 sequential stages · Small batches
+          </p>
         </div>
       </div>
     </footer>
@@ -253,7 +252,7 @@ export default function App() {
   }, [location.pathname])
 
   return (
-    <div className="min-h-screen flex flex-col site-bg text-slate-100">
+    <div className="min-h-screen flex flex-col site-bg text-foreground">
       <Header />
       <main className="flex-1">
         <Routes>

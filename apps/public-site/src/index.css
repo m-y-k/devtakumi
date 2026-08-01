@@ -7,6 +7,28 @@
   --surface: #0a0e17;
   --brand: #f97316;
   --cyan: #06b6d4;
+
+  /* shadcn/ui tokens (dark) */
+  --background: 222 47% 5%;
+  --foreground: 213 25% 94%;
+  --card: 222 45% 6%;
+  --card-foreground: 213 25% 94%;
+  --popover: 222 45% 5%;
+  --popover-foreground: 213 25% 94%;
+  --primary: 24 96% 53%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 222 30% 12%;
+  --secondary-foreground: 213 25% 90%;
+  --muted: 222 30% 10%;
+  --muted-foreground: 216 12% 56%;
+  --accent: 24 90% 10%;
+  --accent-foreground: 24 96% 72%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 222 28% 14%;
+  --input: 222 28% 16%;
+  --ring: 24 96% 53%;
+  --radius: 0.9rem;
 }
 
 * {
