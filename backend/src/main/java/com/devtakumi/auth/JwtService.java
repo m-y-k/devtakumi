@@ -10,16 +10,30 @@ import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Service
 public class JwtService {
+
+    private static final List<String> INSECURE_SECRETS = List.of(
+            "change-me-to-a-long-random-secret-at-least-256-bits",
+            "change-me-in-production-to-a-long-random-secret"
+    );
 
     private final JwtProperties properties;
     private final SecretKey secretKey;
 
     public JwtService(JwtProperties properties) {
         this.properties = properties;
+        if (INSECURE_SECRETS.contains(properties.getSecret())) {
+            throw new IllegalStateException(
+                    "JWT_SECRET is set to a known insecure placeholder. Generate a strong random secret and set JWT_SECRET.");
+        }
+        if (properties.getSecret().getBytes(StandardCharsets.UTF_8).length < 32) {
+            throw new IllegalStateException(
+                    "JWT_SECRET must be at least 256 bits (32+ bytes). Generate a strong random secret and set JWT_SECRET.");
+        }
         this.secretKey = Keys.hmacShaKeyFor(properties.getSecret().getBytes(StandardCharsets.UTF_8));
     }
 

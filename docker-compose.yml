@@ -62,10 +62,10 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/devtakumi?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
       SPRING_DATASOURCE_USERNAME: devtakumi
       SPRING_DATASOURCE_PASSWORD: devtakumipassword
-      JWT_SECRET: change-me-in-production-to-a-long-random-secret
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET in the environment (.env) — openssl rand -hex 48}
       JUDGE0_URL: http://judge0:2358
-      ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@devtakumi.local}
-      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-admin12345}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:?Set ADMIN_EMAIL in the environment (.env)}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?Set ADMIN_PASSWORD in the environment (.env)}
     volumes:
       - storage_data:/app/storage
     depends_on:

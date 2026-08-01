@@ -20,12 +20,13 @@ const navLinks = [
 function AnnouncementBar() {
   const discount = getActiveDiscount()
   return (
-    <div className="relative overflow-hidden bg-gradient-to-r from-[#7c2d12] via-orange-600 to-[#7c2d12]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-center gap-2.5 h-9 text-[11px] sm:text-xs font-semibold text-orange-100">
+    <div className="relative overflow-hidden bg-gradient-to-r from-[#022c22] via-emerald-600 to-[#022c22]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-50%,rgba(16,185,129,0.35),transparent_60%)]" />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-center gap-2.5 h-10 text-[11px] sm:text-xs font-bold text-emerald-50">
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-300 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-200" />
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-300" />
           </span>
           <span className="hidden sm:inline truncate">
             {discount.percentage > 0
@@ -37,7 +38,7 @@ function AnnouncementBar() {
           </span>
           <NavLink
             to="/enroll"
-            className="shrink-0 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-white/15 hover:bg-white/25 transition text-orange-50"
+            className="shrink-0 inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-emerald-400 text-emerald-950 font-black hover:bg-emerald-300 hover:scale-105 active:scale-100 transition shadow-[0_0_18px_-4px_rgba(52,211,153,0.8)]"
           >
             Claim now
             <ArrowRight className="w-3 h-3" />

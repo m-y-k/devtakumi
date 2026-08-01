@@ -40,6 +40,8 @@ jobs:
           SPRING_DATASOURCE_USERNAME: devtakumi
           SPRING_DATASOURCE_PASSWORD: devtakumipassword
           JWT_SECRET: test-secret-that-is-at-least-256-bits-long-for-testing-purposes-only
+          ADMIN_EMAIL: admin@test.devtakumi.local
+          ADMIN_PASSWORD: test-admin-strong-password
 
   frontend-public:
     runs-on: ubuntu-latest

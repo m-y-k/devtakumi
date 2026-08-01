@@ -39,6 +39,11 @@ public class AdminSeeder implements ApplicationRunner {
         this.adminPassword = adminPassword;
         this.adminName = adminName;
         this.upiId = upiId;
+        if ("admin@devtakumi.local".equals(this.adminEmail) && "admin12345".equals(this.adminPassword)) {
+            throw new IllegalStateException(
+                    "Admin credentials are still set to the known insecure defaults. "
+                            + "Set ADMIN_EMAIL and ADMIN_PASSWORD to a real email and a strong password.");
+        }
     }
 
     @Override

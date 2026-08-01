@@ -2,6 +2,7 @@ package com.devtakumi.auth;
 
 import com.devtakumi.auth.dto.*;
 import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -22,21 +23,23 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(
             @Valid @RequestBody LoginRequest request,
+            HttpServletRequest httpRequest,
             HttpServletResponse response) {
         AuthResponse authResponse = authService.login(request.email(), request.password());
-        setRefreshCookie(response, authService.createRefreshToken(request.email()));
+        setRefreshCookie(httpRequest, response, authService.createRefreshToken(request.email()));
         return ResponseEntity.ok(authResponse);
     }
 
     @PostMapping("/refresh")
     public ResponseEntity<AuthResponse> refresh(
+            HttpServletRequest httpRequest,
             @CookieValue(name = REFRESH_COOKIE_NAME, required = false) String refreshToken,
             HttpServletResponse response) {
         if (refreshToken == null) {
             return ResponseEntity.status(401).build();
         }
         AuthResponse authResponse = authService.refreshAccessToken(refreshToken);
-        setRefreshCookie(response, refreshToken);
+        setRefreshCookie(httpRequest, response, refreshToken);
         return ResponseEntity.ok(authResponse);
     }
 
@@ -59,12 +62,21 @@ public class AuthController {
         return ResponseEntity.ok(new MessageResponse("Password set successfully. You can now log in."));
     }
 
-    private void setRefreshCookie(HttpServletResponse response, String refreshToken) {
+    private void setRefreshCookie(HttpServletRequest request, HttpServletResponse response, String refreshToken) {
         Cookie cookie = new Cookie(REFRESH_COOKIE_NAME, refreshToken);
         cookie.setHttpOnly(true);
-        cookie.setSecure(false);
+        cookie.setSecure(isSecureRequest(request));
+        cookie.setAttribute("SameSite", "Lax");
         cookie.setPath("/api/auth");
         cookie.setMaxAge(7 * 24 * 60 * 60);
         response.addCookie(cookie);
+    }
+
+    private boolean isSecureRequest(HttpServletRequest request) {
+        String forwardedProto = request.getHeader("X-Forwarded-Proto");
+        if (forwardedProto != null) {
+            return "https".equalsIgnoreCase(forwardedProto);
+        }
+        return request.isSecure();
     }
 }
