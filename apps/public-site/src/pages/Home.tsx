@@ -103,19 +103,17 @@ function CountdownCard({ timeLeft, discount }: { timeLeft: TimeLeft; discount: D
           {discount.percentage > 0 ? 'Discount drops at the next milestone. Enroll today.' : 'Enrollment closes once the batch fills up.'}
         </p>
 
-        <div className="flex gap-2 font-mono">
+        <div className="grid grid-cols-4 gap-1.5 sm:gap-2 font-mono">
           {[
             { v: timeLeft.days, l: 'Days' },
             { v: String(timeLeft.hours).padStart(2, '0'), l: 'Hrs' },
             { v: String(timeLeft.minutes).padStart(2, '0'), l: 'Min' },
             { v: String(timeLeft.seconds).padStart(2, '0'), l: 'Sec' },
           ].map((t, idx) => (
-            <div key={t.l} className="flex items-center gap-2">
-              <div className="flex flex-col items-center bg-black/40 border border-border rounded-xl px-3 py-2 min-w-[56px] shadow-inner">
-                <span className="text-xl font-bold text-gradient-orange leading-none">{t.v}</span>
-                <span className="text-[9px] text-muted-foreground uppercase tracking-widest font-semibold mt-1">{t.l}</span>
-              </div>
-              {idx < 3 && <span className="text-muted-foreground/60 font-bold text-lg animate-pulse-soft">:</span>}
+            <div key={t.l} className="flex flex-col items-center bg-black/40 border border-border rounded-xl px-1 py-2 shadow-inner min-w-0">
+              <span className="text-lg sm:text-xl font-bold text-gradient-orange leading-none tabular-nums">{t.v}</span>
+              <span className="text-[8px] sm:text-[9px] text-muted-foreground uppercase tracking-widest font-semibold mt-1">{t.l}</span>
+              {idx < 3 && <span className="sr-only">:</span>}
             </div>
           ))}
         </div>

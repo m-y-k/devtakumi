@@ -28,12 +28,12 @@ function AnnouncementBar() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-300" />
           </span>
-          <span className="hidden sm:inline truncate">
+          <span className="hidden sm:inline truncate min-w-0">
             {discount.percentage > 0
               ? `Early Bird ${discount.percentage}% OFF is live — now enrolling`
               : 'Now enrolling · Next batch commencing soon'}
           </span>
-          <span className="sm:hidden truncate">
+          <span className="sm:hidden truncate min-w-0">
             {discount.percentage > 0 ? `Early Bird ${discount.percentage}% OFF live` : 'Now enrolling'}
           </span>
           <NavLink
