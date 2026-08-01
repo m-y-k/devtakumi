@@ -69,7 +69,7 @@ export default function CodeRunnerPage() {
     </div>
   )
 
-  const diff = difficultyConfig[question.difficulty] || difficultyConfig.EASY
+  const diff = difficultyConfig[question.difficulty as keyof typeof difficultyConfig] || difficultyConfig.EASY
 
   return (
     <div className="flex h-screen bg-[#0f1117] overflow-hidden">
@@ -175,7 +175,7 @@ export default function CodeRunnerPage() {
                 </div>
               ) : (
                 <div className="space-y-2">
-                  {submissions.map((s, i) => (
+                  {submissions.map((s) => (
                     <div key={s.id} className="bg-[#151921] border border-[#1e2433] rounded-xl p-3 flex items-center gap-3">
                       <span className={`text-xs font-bold px-2 py-1 rounded ${
                         s.verdict === 'ACCEPTED'

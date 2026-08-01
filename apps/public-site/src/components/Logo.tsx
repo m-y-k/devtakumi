@@ -17,14 +17,14 @@ export function DevtakumiLogo({ size = 'md', className = '', withWordmark = fals
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`.trim()}>
       <img
-        src="/devtakumi-logo.png"
-        alt="Devtakumi"
+        src={`${import.meta.env.BASE_URL}devtakumi-logo.png`}
+        alt="devtakumi"
         className={`${sizeClasses[size]} w-auto object-contain drop-shadow-[0_0_14px_rgba(249,115,22,0.25)]`}
         draggable={false}
       />
       {withWordmark && (
         <span className="font-display font-bold text-white leading-none tracking-tight">
-          Dev<span className="text-orange-500">takumi</span>
+          dev<span className="text-orange-500">takumi</span>
         </span>
       )}
     </span>

@@ -56,7 +56,7 @@ export default function About() {
               <h2 className="font-display text-xl font-bold text-white mb-1">Flipkart SDE Mentors</h2>
               <p className="text-orange-500 font-bold text-xs mb-3 uppercase tracking-widest">Senior Software Engineers @ Flipkart</p>
               <p className="text-slate-400 leading-relaxed text-sm md:text-base">
-                We built Devtakumi because the best way to learn software engineering is from professionals
+                We built devtakumi because the best way to learn software engineering is from professionals
                 who are actively doing it — not from educators who haven't written production code in years.
                 Every topic we teach is something we encounter at our jobs. Every project is real-world.
               </p>

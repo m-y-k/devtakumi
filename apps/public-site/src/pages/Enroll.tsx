@@ -87,7 +87,7 @@ export default function Enroll() {
     )
   }
 
-  const upiLink = `upi://pay?pa=${upiId}&pn=Devtakumi${coursePrice ? `&am=${coursePrice}` : ''}&cu=INR`
+  const upiLink = `upi://pay?pa=${upiId}&pn=devtakumi${coursePrice ? `&am=${coursePrice}` : ''}&cu=INR`
   const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=${encodeURIComponent(upiLink)}&bgcolor=ffffff&color=0f172a&margin=10`
 
   return (
@@ -95,7 +95,7 @@ export default function Enroll() {
       <div className="absolute -top-20 left-1/4 w-[420px] h-[420px] bg-orange-500/[0.08] blur-[130px] rounded-full pointer-events-none" />
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-10 reveal">
-          <span className="eyebrow justify-center mb-3">Join Devtakumi</span>
+          <span className="eyebrow justify-center mb-3">Join devtakumi</span>
           <h1 className="font-display text-3xl md:text-5xl font-bold text-white tracking-tight mb-4">Enroll Now</h1>
           <p className="text-slate-400 max-w-lg mx-auto text-sm md:text-base">
             Pay via UPI and submit your request. We'll verify your payment and send login credentials within 24 hours.

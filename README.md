@@ -1,4 +1,4 @@
-# DevTakumi
+# devtakumi
 
 A coding bootcamp platform with three sequential gated courses (DSA Foundations, Backend Engineering, Full-Stack Development), taught by Mohammad Yusuf Khan (SDE @ Flipkart).
 

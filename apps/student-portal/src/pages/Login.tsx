@@ -69,7 +69,7 @@ export default function Login() {
               <span style={{ color: '#fff', fontFamily: 'monospace', fontWeight: 800, fontSize: 16 }}>&gt;_</span>
             </div>
             <div>
-              <div style={{ fontSize: 18, fontWeight: 800, color: '#fff', lineHeight: 1 }}>Dev</div>
+              <div style={{ fontSize: 18, fontWeight: 800, color: '#fff', lineHeight: 1 }}>dev</div>
               <div style={{ fontSize: 18, fontWeight: 800, color: '#f97316', lineHeight: 1 }}>takumi</div>
             </div>
           </div>
@@ -120,7 +120,7 @@ export default function Login() {
               <span style={{ color: '#fff', fontFamily: 'monospace', fontWeight: 800, fontSize: 14 }}>&gt;_</span>
             </div>
             <span style={{ fontSize: 17, fontWeight: 800, color: '#111827' }}>
-              Dev<span style={{ color: '#f97316' }}>takumi</span>
+              dev<span style={{ color: '#f97316' }}>takumi</span>
             </span>
           </div>
 
@@ -223,7 +223,7 @@ export default function Login() {
           </div>
 
           <p style={{ textAlign: 'center', fontSize: 12, color: '#9ca3af', marginTop: 20 }}>
-            Devtakumi · Taught by SDEs @ Flipkart
+            devtakumi · Taught by SDEs @ Flipkart
           </p>
         </div>
       </div>

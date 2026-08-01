@@ -27,13 +27,13 @@ public class EmailService {
 
     public void sendPasswordResetEmail(String toEmail, String token) {
         String link = studentPortalUrl + "/reset-password?token=" + token;
-        sendOrLog(toEmail, "Reset your DevTakumi password",
+        sendOrLog(toEmail, "Reset your devtakumi password",
                 "Use this link to reset your password (expires in 1 hour):\n\n" + link);
     }
 
     public void sendSetPasswordEmail(String toEmail, String token) {
         String link = studentPortalUrl + "/set-password?token=" + token;
-        sendOrLog(toEmail, "Welcome to DevTakumi — set your password",
+        sendOrLog(toEmail, "Welcome to devtakumi — set your password",
                 "Your enrollment has been approved. Set your password here (expires in 1 hour):\n\n"
                         + link + "\n\nThen sign in at: " + studentPortalUrl + "/login");
     }
@@ -43,7 +43,7 @@ public class EmailService {
         if (note != null && !note.isBlank()) {
             body += "\n\nNote from admin: " + note;
         }
-        sendOrLog(toEmail, "DevTakumi enrollment update", body);
+        sendOrLog(toEmail, "devtakumi enrollment update", body);
     }
 
     public void sendCourseUnlockedEmail(String toEmail, String courseTitle) {

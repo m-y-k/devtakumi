@@ -58,19 +58,19 @@ public class AuthFlowIntegrationTest {
                 "password", "password123"
         );
 
-        var loginResult = mockMvc.perform(post("/api/auth/login")
+        String accessToken = objectMapper.readTree(
+                mockMvc.perform(post("/api/auth/login")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(loginRequest)))
                 .andExpect(status().isOk())
-                .andExpect(cookie().exists("accessToken"))
+                .andExpect(jsonPath("$.accessToken").isNotEmpty())
                 .andExpect(cookie().exists("refreshToken"))
-                .andReturn();
-
-        String accessTokenCookie = loginResult.getResponse().getCookie("accessToken").getValue();
+                .andReturn().getResponse().getContentAsString()
+        ).get("accessToken").asText();
 
         // 2. Access protected resource
-        mockMvc.perform(get("/api/auth/me")
-                        .cookie(loginResult.getResponse().getCookie("accessToken")))
+        mockMvc.perform(get("/api/me")
+                        .header("Authorization", "Bearer " + accessToken))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.email").value("test@example.com"))
                 .andExpect(jsonPath("$.role").value("STUDENT"));

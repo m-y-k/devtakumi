@@ -63,7 +63,7 @@ function Header() {
       <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <NavLink to="/" aria-label="Devtakumi home" className="flex items-center shrink-0">
+            <NavLink to="/" aria-label="devtakumi home" className="flex items-center shrink-0">
               <DevtakumiLogo size="md" withWordmark />
             </NavLink>
 
@@ -194,7 +194,7 @@ function Footer() {
         </div>
 
         <div className="pt-6 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground/70">
-          <p>© 2026 Devtakumi. All rights reserved.</p>
+          <p>© 2026 devtakumi. All rights reserved.</p>
           <p className="inline-flex items-center gap-1.5">
             <Clock className="w-3.5 h-3.5" />
             {PUBLIC_SETTINGS.classCount} live classes · 3 sequential stages · Small batches

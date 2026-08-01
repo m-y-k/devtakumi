@@ -27,6 +27,7 @@ export interface ClassTreeItem {
   title: string
   day: string
   orderIndex: number
+  scheduledStart: string | null
 }
 
 export interface ClassDetail {
