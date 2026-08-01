@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: rootpassword
+          MYSQL_DATABASE: ooma
+          MYSQL_USER: ooma
+          MYSQL_PASSWORD: oomapassword
+        options: >-
+          --health-cmd "mysqladmin ping -h localhost"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 3306:3306
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
+      - name: Build and test backend
+        run: mvn verify -B
+        working-directory: backend
+        env:
+          SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/ooma?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+          SPRING_DATASOURCE_USERNAME: ooma
+          SPRING_DATASOURCE_PASSWORD: oomapassword
+          JWT_SECRET: test-secret-that-is-at-least-256-bits-long-for-testing-purposes-only
+
+  frontend-public:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: apps/public-site/package-lock.json
+      - run: npm ci
+        working-directory: apps/public-site
+      - run: npm run build
+        working-directory: apps/public-site
+
+  frontend-student:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: apps/student-portal/package-lock.json
+      - run: npm ci
+        working-directory: apps/student-portal
+      - run: npm run build
+        working-directory: apps/student-portal

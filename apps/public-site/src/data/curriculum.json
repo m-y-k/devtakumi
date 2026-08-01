@@ -1,0 +1,1463 @@
+{
+  "courses": [
+    {
+      "id": "a0000001-0001-4000-8000-000000000001",
+      "slug": "dsa-foundations",
+      "title": "DSA Foundations",
+      "description": "Data Structures & Algorithms — from programming basics through trees, graphs, and dynamic programming.",
+      "priceInr": 999,
+      "durationMonths": 4,
+      "orderIndex": 1,
+      "prerequisiteCourseId": null,
+      "prerequisiteCourseTitle": null,
+      "totalClasses": 80
+    },
+    {
+      "id": "a0000001-0002-4000-8000-000000000002",
+      "slug": "backend-engineering",
+      "title": "Backend Engineering (Java + Spring Boot + SQL)",
+      "description": "Advanced Java, relational databases, and production-grade Spring Boot REST APIs.",
+      "priceInr": 1499,
+      "durationMonths": 6,
+      "orderIndex": 2,
+      "prerequisiteCourseId": "a0000001-0001-4000-8000-000000000001",
+      "prerequisiteCourseTitle": "DSA Foundations",
+      "totalClasses": 40
+    },
+    {
+      "id": "a0000001-0003-4000-8000-000000000003",
+      "slug": "full-stack-development",
+      "title": "Full-Stack Development (Vanilla JS + React)",
+      "description": "Modern HTML/CSS, JavaScript, React, and full-stack deployment.",
+      "priceInr": 1999,
+      "durationMonths": 8,
+      "orderIndex": 3,
+      "prerequisiteCourseId": "a0000001-0002-4000-8000-000000000002",
+      "prerequisiteCourseTitle": "Backend Engineering (Java + Spring Boot + SQL)",
+      "totalClasses": 40
+    }
+  ],
+  "curriculumBySlug": {
+    "dsa-foundations": {
+      "courseId": "a0000001-0001-4000-8000-000000000001",
+      "slug": "dsa-foundations",
+      "title": "DSA Foundations",
+      "months": [
+        {
+          "id": "b0000001-0001-0001-8000-000000000001",
+          "monthNumber": 1,
+          "title": "Programming Foundations & Absolute Basics",
+          "weeks": [
+            {
+              "id": "c0000001-0001-0001-8000-000000000001",
+              "weekNumber": 1,
+              "title": "Introduction to Programming & Core Data Types",
+              "classes": [
+                {
+                  "id": "d0000001-0001-4000-8000-000000000001",
+                  "globalClassNumber": 1,
+                  "title": "How Computers Think: Compilers, Interpreters, and setting up the Java Environment (JDK vs. JRE vs. JVM).",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0002-4000-8000-000000000001",
+                  "globalClassNumber": 2,
+                  "title": "Variables & Memory: What happens in RAM when you declare a variable?",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0003-4000-8000-000000000001",
+                  "globalClassNumber": 3,
+                  "title": "Primitive Data Types: Deep dive into int, float, double, char, boolean, and their exact byte limits.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0004-4000-8000-000000000001",
+                  "globalClassNumber": 4,
+                  "title": "Standard Input/Output: Mastering the Scanner class for interactive programs and formatting output.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0005-4000-8000-000000000001",
+                  "globalClassNumber": 5,
+                  "title": "Operators & Expressions: Arithmetic, Relational, Logical operators, and operator precedence rules.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            },
+            {
+              "id": "c0000001-0001-0002-8000-000000000001",
+              "weekNumber": 2,
+              "title": "Conditional Logic & Digital Arithmetic",
+              "classes": [
+                {
+                  "id": "d0000001-0006-4000-8000-000000000001",
+                  "globalClassNumber": 6,
+                  "title": "Decision Making: if, else if, else, and nested conditions.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0007-4000-8000-000000000001",
+                  "globalClassNumber": 7,
+                  "title": "Multiple Choices: switch-case statements and modern switch expressions.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0008-4000-8000-000000000001",
+                  "globalClassNumber": 8,
+                  "title": "Bitwise Operators: Understanding binary representation, AND, OR, XOR, and Bit Shifts (<<, >>).",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0009-4000-8000-000000000001",
+                  "globalClassNumber": 9,
+                  "title": "Logic Building: Drawing flowcharts and writing pseudocode for real-world problems.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0010-4000-8000-000000000001",
+                  "globalClassNumber": 10,
+                  "title": "Week 2 Review & Core Syntax Live Lab Quiz.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            },
+            {
+              "id": "c0000001-0001-0003-8000-000000000001",
+              "weekNumber": 3,
+              "title": "Loops & Logic-Building Patterns",
+              "classes": [
+                {
+                  "id": "d0000001-0011-4000-8000-000000000001",
+                  "globalClassNumber": 11,
+                  "title": "Loops Part 1: The anatomy of a while loop and do-while loops.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0012-4000-8000-000000000001",
+                  "globalClassNumber": 12,
+                  "title": "Loops Part 2: The for loop, initialization, condition, and increment/decrement mechanics.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0013-4000-8000-000000000001",
+                  "globalClassNumber": 13,
+                  "title": "Nested Loops: Code tracing, dry-running variables step-by-step on a whiteboard.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0014-4000-8000-000000000001",
+                  "globalClassNumber": 14,
+                  "title": "Logic Building via Pattern Printing: Building stars, numbers, and inverted pyramid patterns.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0015-4000-8000-000000000001",
+                  "globalClassNumber": 15,
+                  "title": "Control Statements: How and when to use break, continue, and return points safely.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            },
+            {
+              "id": "c0000001-0001-0004-8000-000000000001",
+              "weekNumber": 4,
+              "title": "Functions & Introduction to 1D Arrays",
+              "classes": [
+                {
+                  "id": "d0000001-0016-4000-8000-000000000001",
+                  "globalClassNumber": 16,
+                  "title": "Functions/Methods: Declaring methods, parameters, return types, and execution stacks.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0017-4000-8000-000000000001",
+                  "globalClassNumber": 17,
+                  "title": "Memory Scope: Local vs. Global scope, and debunking the \"Pass by Value vs. Reference\" myth in Java.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0018-4000-8000-000000000001",
+                  "globalClassNumber": 18,
+                  "title": "Introduction to 1D Arrays: Why do we need them? Memory contiguous allocation and indexing.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0019-4000-8000-000000000001",
+                  "globalClassNumber": 19,
+                  "title": "Basic Array Operations: Inserting, updating, traversing, and tracking elements in an array.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0020-4000-8000-000000000001",
+                  "globalClassNumber": 20,
+                  "title": "Month 1 Comprehensive Assessment: Building basic console apps (e.g., Calculator, Number Guessing Game).",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "b0000001-0001-0002-8000-000000000001",
+          "monthNumber": 2,
+          "title": "Time Complexity, Searching, Sorting & Strings",
+          "weeks": [
+            {
+              "id": "c0000001-0001-0005-8000-000000000001",
+              "weekNumber": 5,
+              "title": "Code Efficiency & Linear Searching",
+              "classes": [
+                {
+                  "id": "d0000001-0021-4000-8000-000000000001",
+                  "globalClassNumber": 21,
+                  "title": "Introduction to Time & Space Complexity: Why performance matters when data grows.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0022-4000-8000-000000000001",
+                  "globalClassNumber": 22,
+                  "title": "Asymptotic Notations: Visually understanding Big-O, Big-Omega, and Big-Theta.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0023-4000-8000-000000000001",
+                  "globalClassNumber": 23,
+                  "title": "Analyzing Complexity: Calculating Big-O for linear loops, nested loops, and conditional structures.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0024-4000-8000-000000000001",
+                  "globalClassNumber": 24,
+                  "title": "Linear Search: Algorithm, implementation, and analyzing best/worst-case scenarios.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0025-4000-8000-000000000001",
+                  "globalClassNumber": 25,
+                  "title": "Array Math: Finding Maximum, Minimum, and tracking frequencies in arrays.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            },
+            {
+              "id": "c0000001-0001-0006-8000-000000000001",
+              "weekNumber": 6,
+              "title": "Binary Search Mastery",
+              "classes": [
+                {
+                  "id": "d0000001-0026-4000-8000-000000000001",
+                  "globalClassNumber": 26,
+                  "title": "Divide & Conquer Strategy: The intuition behind Binary Search (Sorted array logic).",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0027-4000-8000-000000000001",
+                  "globalClassNumber": 27,
+                  "title": "Binary Search Implementation: Iterative vs. Recursive structural approaches.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0028-4000-8000-000000000001",
+                  "globalClassNumber": 28,
+                  "title": "Binary Search Tweaks: Finding the Floor, Ceiling, First Occurrence, and Last Occurrence of an element.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0029-4000-8000-000000000001",
+                  "globalClassNumber": 29,
+                  "title": "Advanced Binary Search: Searching in a Rotated Sorted Array.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0030-4000-8000-000000000001",
+                  "globalClassNumber": 30,
+                  "title": "Binary Search on Answer: Peak Element detection and real-world optimizations.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            },
+            {
+              "id": "c0000001-0001-0007-8000-000000000001",
+              "weekNumber": 7,
+              "title": "Basic Sorting Algorithms & Multi-Dimensional Arrays",
+              "classes": [
+                {
+                  "id": "d0000001-0031-4000-8000-000000000001",
+                  "globalClassNumber": 31,
+                  "title": "Bubble Sort: The intuition of swapping adjacent elements, optimization flags, and dry-runs.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0032-4000-8000-000000000001",
+                  "globalClassNumber": 32,
+                  "title": "Selection Sort & Insertion Sort: Card-sorting analogy, mechanics, and inner-loop transitions.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0033-4000-8000-000000000001",
+                  "globalClassNumber": 33,
+                  "title": "Introduction to 2D Arrays (Matrices): Memory architecture (Row-major vs. Column-major).",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0034-4000-8000-000000000001",
+                  "globalClassNumber": 34,
+                  "title": "2D Array Operations: Matrix Addition, Multiplication, and Transposition.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0035-4000-8000-000000000001",
+                  "globalClassNumber": 35,
+                  "title": "Advanced Matrix Techniques: Spiral traversal and 90-degree matrix rotation algorithms.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            },
+            {
+              "id": "c0000001-0001-0008-8000-000000000001",
+              "weekNumber": 8,
+              "title": "String Manipulation & Pointers",
+              "classes": [
+                {
+                  "id": "d0000001-0036-4000-8000-000000000001",
+                  "globalClassNumber": 36,
+                  "title": "Strings in Java: String Immutability, Heap memory allocation, and the String Constant Pool.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0037-4000-8000-000000000001",
+                  "globalClassNumber": 37,
+                  "title": "Essential String Mechanics: Operations, String Comparisons, and using StringBuilder for performance.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0038-4000-8000-000000000001",
+                  "globalClassNumber": 38,
+                  "title": "Two-Pointer Technique: Reversing arrays, checking palindromes, and container container problems.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0039-4000-8000-000000000001",
+                  "globalClassNumber": 39,
+                  "title": "Basic Sliding Window: Fixed-size window patterns for contiguous subarray tracking.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0040-4000-8000-000000000001",
+                  "globalClassNumber": 40,
+                  "title": "Month 2 Review & Mid-Phase DSA Coding Contest.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "b0000001-0001-0003-8000-000000000001",
+          "monthNumber": 3,
+          "title": "Intermediate DSA (Recursion, Backtracking & Linear Structures)",
+          "weeks": [
+            {
+              "id": "c0000001-0001-0009-8000-000000000001",
+              "weekNumber": 9,
+              "title": "Recursion Foundations",
+              "classes": [
+                {
+                  "id": "d0000001-0041-4000-8000-000000000001",
+                  "globalClassNumber": 41,
+                  "title": "Recursion Principle: The concept of a function calling itself. The base case vs. infinite stack overflow.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0042-4000-8000-000000000001",
+                  "globalClassNumber": 42,
+                  "title": "The Call Stack: Visualizing recursion memory allocation with trees.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0043-4000-8000-000000000001",
+                  "globalClassNumber": 43,
+                  "title": "Classic Recursion: Factorials, Fibonacci sequences, and power calculations.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0044-4000-8000-000000000001",
+                  "globalClassNumber": 44,
+                  "title": "String Recursion: Generating subsequences, reversing strings recursively.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0045-4000-8000-000000000001",
+                  "globalClassNumber": 45,
+                  "title": "Tail Recursion vs. Non-Tail Recursion optimization techniques.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            },
+            {
+              "id": "c0000001-0001-0010-8000-000000000001",
+              "weekNumber": 10,
+              "title": "Backtracking Mastery",
+              "classes": [
+                {
+                  "id": "d0000001-0046-4000-8000-000000000001",
+                  "globalClassNumber": 46,
+                  "title": "The Backtracking Concept: Navigating decision trees and state pruning.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0047-4000-8000-000000000001",
+                  "globalClassNumber": 47,
+                  "title": "Permutations & Combinations: Generating all possible structural arrangements of an array.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0048-4000-8000-000000000001",
+                  "globalClassNumber": 48,
+                  "title": "Maze Problems: The classic Rat in a Maze puzzle layout.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0049-4000-8000-000000000001",
+                  "globalClassNumber": 49,
+                  "title": "N-Queens Problem: Constraint validation and matrix state restoration.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0050-4000-8000-000000000001",
+                  "globalClassNumber": 50,
+                  "title": "Sudoku Solver: Formulating advanced row, column, and subgrid validation rules.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            },
+            {
+              "id": "c0000001-0001-0011-8000-000000000001",
+              "weekNumber": 11,
+              "title": "Linked Lists",
+              "classes": [
+                {
+                  "id": "d0000001-0051-4000-8000-000000000001",
+                  "globalClassNumber": 51,
+                  "title": "Dynamic Memory: Nodes, Pointers, and Singly Linked List structures vs. Arrays.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0052-4000-8000-000000000001",
+                  "globalClassNumber": 52,
+                  "title": "Linked List Operations: Insertion and Deletion at Head, Tail, and middle index positions.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0053-4000-8000-000000000001",
+                  "globalClassNumber": 53,
+                  "title": "Structural Reversal: Reversing a Linked List iteratively and recursively.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0054-4000-8000-000000000001",
+                  "globalClassNumber": 54,
+                  "title": "Cycle Mechanics: Floyd''s Cycle Detection (Tortoise & Hare) and Cycle Removal loops.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0055-4000-8000-000000000001",
+                  "globalClassNumber": 55,
+                  "title": "Doubly & Circular Linked Lists: Multi-directional node tracking.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            },
+            {
+              "id": "c0000001-0001-0012-8000-000000000001",
+              "weekNumber": 12,
+              "title": "Stacks & Queues",
+              "classes": [
+                {
+                  "id": "d0000001-0056-4000-8000-000000000001",
+                  "globalClassNumber": 56,
+                  "title": "Stacks (LIFO): Array-based and Linked-List-based implementations.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0057-4000-8000-000000000001",
+                  "globalClassNumber": 57,
+                  "title": "Queues (FIFO): Custom implementations and Circular Queue arrays.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0058-4000-8000-000000000001",
+                  "globalClassNumber": 58,
+                  "title": "Evaluation Logic: Balanced Parentheses verification and Infix-to-Postfix string conversions.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0059-4000-8000-000000000001",
+                  "globalClassNumber": 59,
+                  "title": "Monotonic Stack Patterns: Next Greater Element / Next Smaller Element logic.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0060-4000-8000-000000000001",
+                  "globalClassNumber": 60,
+                  "title": "Month 3 Assessment & Code Review (Linked Lists, Stacks, Queues).",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "b0000001-0001-0004-8000-000000000001",
+          "monthNumber": 4,
+          "title": "Advanced DSA (Trees, Heaps, Graphs & DP)",
+          "weeks": [
+            {
+              "id": "c0000001-0001-0013-8000-000000000001",
+              "weekNumber": 13,
+              "title": "Hierarchical Structures (Trees & BST)",
+              "classes": [
+                {
+                  "id": "d0000001-0061-4000-8000-000000000001",
+                  "globalClassNumber": 61,
+                  "title": "Trees Concept: Binary Tree nodes, root elements, and leaf classifications.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0062-4000-8000-000000000001",
+                  "globalClassNumber": 62,
+                  "title": "Traversal Paths: Pre-order, In-order, Post-order (Recursive & Iterative layouts).",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0063-4000-8000-000000000001",
+                  "globalClassNumber": 63,
+                  "title": "Breadth-First Search (BFS): Level Order Traversal utilizing Queue states.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0064-4000-8000-000000000001",
+                  "globalClassNumber": 64,
+                  "title": "Binary Search Trees (BST): Properties, element validation, node Insertion, and Deletion.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0065-4000-8000-000000000001",
+                  "globalClassNumber": 65,
+                  "title": "Structural Optimization: Balanced Trees concept (AVL/Red-Black overview) and Lowest Common Ancestor.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            },
+            {
+              "id": "c0000001-0001-0014-8000-000000000001",
+              "weekNumber": 14,
+              "title": "Heaps & Hash Maps",
+              "classes": [
+                {
+                  "id": "d0000001-0066-4000-8000-000000000001",
+                  "globalClassNumber": 66,
+                  "title": "Binary Heaps: Min-Heap and Max-Heap complete array-based layouts.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0067-4000-8000-000000000001",
+                  "globalClassNumber": 67,
+                  "title": "PriorityQueues: Heapify mechanics, Custom Comparators, and Heap Sort operations.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0068-4000-8000-000000000001",
+                  "globalClassNumber": 68,
+                  "title": "Top K Patterns: Finding the K-th largest element and merging K sorted streams.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0069-4000-8000-000000000001",
+                  "globalClassNumber": 69,
+                  "title": "Hashing: Concept, Hash Codes, Collision resolution mechanisms (Chaining vs. Open Addressing).",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0070-4000-8000-000000000001",
+                  "globalClassNumber": 70,
+                  "title": "Hashing Tools: HashMap and HashSet internals in Java (hashCode() and equals()).",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            },
+            {
+              "id": "c0000001-0001-0015-8000-000000000001",
+              "weekNumber": 15,
+              "title": "Graph Networks",
+              "classes": [
+                {
+                  "id": "d0000001-0071-4000-8000-000000000001",
+                  "globalClassNumber": 71,
+                  "title": "Graph Basics: Vertices, Edges, Adjacency Matrices, and Adjacency Lists.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0072-4000-8000-000000000001",
+                  "globalClassNumber": 72,
+                  "title": "Network Traversals: Breadth-First Search (BFS) and Depth-First Search (DFS) implementation loops.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0073-4000-8000-000000000001",
+                  "globalClassNumber": 73,
+                  "title": "Topological Sorting: Directed Acyclic Graph orderings (Kahn''s Algorithm).",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0074-4000-8000-000000000001",
+                  "globalClassNumber": 74,
+                  "title": "Shortest Path: Dijkstra''s Algorithm using PriorityQueues.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0075-4000-8000-000000000001",
+                  "globalClassNumber": 75,
+                  "title": "Spanning Trees: Kruskal''s and Prim''s Minimum Spanning Tree structures.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            },
+            {
+              "id": "c0000001-0001-0016-8000-000000000001",
+              "weekNumber": 16,
+              "title": "Dynamic Programming (DP) & Advanced Data Structures",
+              "classes": [
+                {
+                  "id": "d0000001-0076-4000-8000-000000000001",
+                  "globalClassNumber": 76,
+                  "title": "DP Concept: Identifying overlapping subproblems and optimal substructures.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0077-4000-8000-000000000001",
+                  "globalClassNumber": 77,
+                  "title": "Memoization vs. Tabulation: Converting recursive solutions into efficient iterative arrays.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0078-4000-8000-000000000001",
+                  "globalClassNumber": 78,
+                  "title": "Classic 1D/2D DP: Climbing Stairs, House Robber, and 0/1 Knapsack equations.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0079-4000-8000-000000000001",
+                  "globalClassNumber": 79,
+                  "title": "Prefix Trees (Tries): Efficient character-by-character string storage, search, and autocomplete logic.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0080-4000-8000-000000000001",
+                  "globalClassNumber": 80,
+                  "title": "Phase 1 Capstone Hackathon & DSA Certification Challenge.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "backend-engineering": {
+      "courseId": "a0000001-0002-4000-8000-000000000002",
+      "slug": "backend-engineering",
+      "title": "Backend Engineering (Java + Spring Boot + SQL)",
+      "months": [
+        {
+          "id": "b0000001-0002-0005-8000-000000000001",
+          "monthNumber": 5,
+          "title": "Advanced Java Concepts & SQL Database Modeling",
+          "weeks": [
+            {
+              "id": "c0000001-0002-0017-8000-000000000001",
+              "weekNumber": 17,
+              "title": "Object-Oriented Programming (OOP) Deep Dive",
+              "classes": [
+                {
+                  "id": "d0000001-0081-4000-8000-000000000001",
+                  "globalClassNumber": 81,
+                  "title": "Classes, Objects, and Constructors. Access Modifiers (public, private, protected, default).",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0082-4000-8000-000000000001",
+                  "globalClassNumber": 82,
+                  "title": "Encapsulation & Inheritance: Extends vs. Implements, and memory behavior of subclass instances.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0083-4000-8000-000000000001",
+                  "globalClassNumber": 83,
+                  "title": "Polymorphism: Method Overloading vs. Method Overriding (Runtime vs. Compile-time execution).",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0084-4000-8000-000000000001",
+                  "globalClassNumber": 84,
+                  "title": "Abstraction: Abstract Classes vs. Interfaces (including Java 8+ Default/Static interface methods).",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0085-4000-8000-000000000001",
+                  "globalClassNumber": 85,
+                  "title": "Error Handling: Exception Hierarchy, try-catch-finally, and throwing custom business exceptions.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            },
+            {
+              "id": "c0000001-0002-0018-8000-000000000001",
+              "weekNumber": 18,
+              "title": "Advanced Java Mechanics",
+              "classes": [
+                {
+                  "id": "d0000001-0086-4000-8000-000000000001",
+                  "globalClassNumber": 86,
+                  "title": "Java Generics: Building type-safe components and generic boundary structures.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0087-4000-8000-000000000001",
+                  "globalClassNumber": 87,
+                  "title": "Collections Internals: Inner mechanics of ArrayList, LinkedList, and HashSet memory resizing.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0088-4000-8000-000000000001",
+                  "globalClassNumber": 88,
+                  "title": "Lambda Expressions & Streams: Modern functional processing over arrays and collections.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0089-4000-8000-000000000001",
+                  "globalClassNumber": 89,
+                  "title": "Multithreading Foundations: Lifecycle of a Thread, Runnable implementation, and synchronization locks.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0090-4000-8000-000000000001",
+                  "globalClassNumber": 90,
+                  "title": "Java Memory Internals: Stack vs. Heap allocation, and how Garbage Collection frees dead objects.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            },
+            {
+              "id": "c0000001-0002-0019-8000-000000000001",
+              "weekNumber": 19,
+              "title": "Relational Databases & SQL Basics",
+              "classes": [
+                {
+                  "id": "d0000001-0091-4000-8000-000000000001",
+                  "globalClassNumber": 91,
+                  "title": "Database Architecture: Relational Databases vs. File Systems, and SQL vs. NoSQL environments.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0092-4000-8000-000000000001",
+                  "globalClassNumber": 92,
+                  "title": "Data Definition Language (DDL): Writing clean CREATE, ALTER, and DROP statements.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0093-4000-8000-000000000001",
+                  "globalClassNumber": 93,
+                  "title": "Data Manipulation Language (DML): Master INSERT, UPDATE, DELETE, and Primary/Foreign Key constraints.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0094-4000-8000-000000000001",
+                  "globalClassNumber": 94,
+                  "title": "Query Filtering: SELECT syntax, WHERE clauses, Wildcards, and logical pagination mapping.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0095-4000-8000-000000000001",
+                  "globalClassNumber": 95,
+                  "title": "Aggregations: GROUP BY, HAVING, and calculating analytics via SUM, AVG, COUNT.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            },
+            {
+              "id": "c0000001-0002-0020-8000-000000000001",
+              "weekNumber": 20,
+              "title": "Advanced SQL & Data Architecture",
+              "classes": [
+                {
+                  "id": "d0000001-0096-4000-8000-000000000001",
+                  "globalClassNumber": 96,
+                  "title": "Table Joins: Combining multi-table entities via INNER, LEFT, RIGHT, and FULL OUTER joins.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0097-4000-8000-000000000001",
+                  "globalClassNumber": 97,
+                  "title": "Complex Queries: Subqueries, Correlated Subqueries, and CTEs (Common Table Expressions).",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0098-4000-8000-000000000001",
+                  "globalClassNumber": 98,
+                  "title": "Normalization Theory: Redundancy eradication up to 3rd Normal Form (1NF, 2NF, 3NF).",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0099-4000-8000-000000000001",
+                  "globalClassNumber": 99,
+                  "title": "Transactions Isolation: ACID Properties, locking modes, and maintaining data consistency.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0100-4000-8000-000000000001",
+                  "globalClassNumber": 100,
+                  "title": "Database Indexing: How B-Trees accelerate queries, and analyzing Slow Query Execution Plans.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "b0000001-0002-0006-8000-000000000001",
+          "monthNumber": 6,
+          "title": "Spring Boot Ecosystem & REST API Architecture",
+          "weeks": [
+            {
+              "id": "c0000001-0002-0021-8000-000000000001",
+              "weekNumber": 21,
+              "title": "Spring Framework Core Mechanics",
+              "classes": [
+                {
+                  "id": "d0000001-0101-4000-8000-000000000001",
+                  "globalClassNumber": 101,
+                  "title": "Enterprise Frameworks Concept: The Spring Ecosystem overview.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0102-4000-8000-000000000001",
+                  "globalClassNumber": 102,
+                  "title": "Dependency Injection: Understanding Inversion of Control (IoC) to break rigid code dependencies.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0103-4000-8000-000000000001",
+                  "globalClassNumber": 103,
+                  "title": "Core Annotations: Wiring components using @Component, @Service, @Repository, and @Autowired.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0104-4000-8000-000000000001",
+                  "globalClassNumber": 104,
+                  "title": "Lifecycle of Beans: Singleton vs. Prototype instantiations and scopes.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0105-4000-8000-000000000001",
+                  "globalClassNumber": 105,
+                  "title": "Application Properties: Environment isolation with Profiles and configuration files.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            },
+            {
+              "id": "c0000001-0002-0022-8000-000000000001",
+              "weekNumber": 22,
+              "title": "RESTful Web API Design",
+              "classes": [
+                {
+                  "id": "d0000001-0106-4000-8000-000000000001",
+                  "globalClassNumber": 106,
+                  "title": "REST Architecture: HTTP Methods (GET, POST, PUT, DELETE), request anatomy, and status codes.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0107-4000-8000-000000000001",
+                  "globalClassNumber": 107,
+                  "title": "Web Routing: Implementing API controllers using @RestController and @RequestMapping.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0108-4000-8000-000000000001",
+                  "globalClassNumber": 108,
+                  "title": "Extracting Parameters: Handling inputs from @PathVariable, @RequestParam, and URL shapes.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0109-4000-8000-000000000001",
+                  "globalClassNumber": 109,
+                  "title": "Payload Bindings: Transforming raw JSON payloads into Java Data Transfer Objects (DTOs) via @RequestBody.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0110-4000-8000-000000000001",
+                  "globalClassNumber": 110,
+                  "title": "Global Exception Handling: Building error handlers using @ControllerAdvice.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            },
+            {
+              "id": "c0000001-0002-0023-8000-000000000001",
+              "weekNumber": 23,
+              "title": "Data Persistence with Spring Data JPA & Hibernate",
+              "classes": [
+                {
+                  "id": "d0000001-0111-4000-8000-000000000001",
+                  "globalClassNumber": 111,
+                  "title": "ORM Concepts: The abstraction bridge between database tables and Java objects.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0112-4000-8000-000000000001",
+                  "globalClassNumber": 112,
+                  "title": "Entity Mapping: Configuring entity classes with @Entity, @Table, @Id, and @GeneratedValue.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0113-4000-8000-000000000001",
+                  "globalClassNumber": 113,
+                  "title": "JPA Repositories: Generating automated CRUD operations and custom query methods.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0114-4000-8000-000000000001",
+                  "globalClassNumber": 114,
+                  "title": "Mappings: Setting up @OneToOne and @OneToMany relational mapping boundaries.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0115-4000-8000-000000000001",
+                  "globalClassNumber": 115,
+                  "title": "Performance Tuning: Fixing the N+1 select problem and controlling Lazy vs. Eager loading.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            },
+            {
+              "id": "c0000001-0002-0024-8000-000000000001",
+              "weekNumber": 24,
+              "title": "Security, Testing & Architecture Cleanliness",
+              "classes": [
+                {
+                  "id": "d0000001-0116-4000-8000-000000000001",
+                  "globalClassNumber": 116,
+                  "title": "API Validations: Guarding endpoint structures using Jakarta validation constraints (@Valid).",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0117-4000-8000-000000000001",
+                  "globalClassNumber": 117,
+                  "title": "Web Security Concept: Introduction to Authentication vs. Authorization and JWT tokens.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0118-4000-8000-000000000001",
+                  "globalClassNumber": 118,
+                  "title": "Enterprise Logging: Using SLF4J/Logback for application state tracking.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0119-4000-8000-000000000001",
+                  "globalClassNumber": 119,
+                  "title": "Automated Testing: Writing robust unit tests using JUnit 5 and mocking database contexts with Mockito.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0120-4000-8000-000000000001",
+                  "globalClassNumber": 120,
+                  "title": "Backend Evaluation & Project Showcase.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "full-stack-development": {
+      "courseId": "a0000001-0003-4000-8000-000000000003",
+      "slug": "full-stack-development",
+      "title": "Full-Stack Development (Vanilla JS + React)",
+      "months": [
+        {
+          "id": "b0000001-0003-0007-8000-000000000001",
+          "monthNumber": 7,
+          "title": "UI Engineering & JavaScript Runtime Mechanics",
+          "weeks": [
+            {
+              "id": "c0000001-0003-0025-8000-000000000001",
+              "weekNumber": 25,
+              "title": "Modern HTML5 & Responsive Styling (CSS3)",
+              "classes": [
+                {
+                  "id": "d0000001-0121-4000-8000-000000000001",
+                  "globalClassNumber": 121,
+                  "title": "Web Browsers: How DOM rendering engines read source structures. Semantic HTML5 tags.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0122-4000-8000-000000000001",
+                  "globalClassNumber": 122,
+                  "title": "CSS Specificity: The Cascading inheritance engine, selectors, and the CSS Box Model layout.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0123-4000-8000-000000000001",
+                  "globalClassNumber": 123,
+                  "title": "Flexbox Engine: Master directional alignment controls along main and cross axes.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0124-4000-8000-000000000001",
+                  "globalClassNumber": 124,
+                  "title": "Grid Layouts: Advanced multi-dimensional layout sheets, grid templates, and areas.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0125-4000-8000-000000000001",
+                  "globalClassNumber": 125,
+                  "title": "Responsive Web: Building media queries, fluid sizing viewports, and modern CSS variables.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            },
+            {
+              "id": "c0000001-0003-0026-8000-000000000001",
+              "weekNumber": 26,
+              "title": "Core JavaScript Runtime Mechanics",
+              "classes": [
+                {
+                  "id": "d0000001-0126-4000-8000-000000000001",
+                  "globalClassNumber": 126,
+                  "title": "JavaScript Basics: Variable lifecycles (var, let, const), implicit conversions, and dynamic data typing.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0127-4000-8000-000000000001",
+                  "globalClassNumber": 127,
+                  "title": "Scopes & Execution Context: Scoping chains, Closures, and how the compilation phase hoists declarations.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0128-4000-8000-000000000001",
+                  "globalClassNumber": 128,
+                  "title": "First-Class Functions: Callbacks, Arrow Functions, and High-Order arrays mappings.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0129-4000-8000-000000000001",
+                  "globalClassNumber": 129,
+                  "title": "Complex Types: Array structures mutation methods (map(), filter(), reduce()) and Object states.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0130-4000-8000-000000000001",
+                  "globalClassNumber": 130,
+                  "title": "Modern ES6+ Tooling: Destructuring assignments, Spread operators, and Template Strings.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            },
+            {
+              "id": "c0000001-0003-0027-8000-000000000001",
+              "weekNumber": 27,
+              "title": "DOM Manipulation & Async JavaScript",
+              "classes": [
+                {
+                  "id": "d0000001-0131-4000-8000-000000000001",
+                  "globalClassNumber": 131,
+                  "title": "DOM APIs: Dynamic document generation, node selection query selectors, and modifying markup.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0132-4000-8000-000000000001",
+                  "globalClassNumber": 132,
+                  "title": "Event Engine: Binding listeners, Event Bubbling propagation paths, and Event Delegation strategies.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0133-4000-8000-000000000001",
+                  "globalClassNumber": 133,
+                  "title": "Asynchronous Event Loop: Call Stacks, Web APIs, Task Queues, and the event processing cycle.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0134-4000-8000-000000000001",
+                  "globalClassNumber": 134,
+                  "title": "Promises Lifecycle: Creating, chaining, and error-catching on async pipelines.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0135-4000-8000-000000000001",
+                  "globalClassNumber": 135,
+                  "title": "Async/Await Syntax: Writing cleaner async flows with try-catch blocks.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            },
+            {
+              "id": "c0000001-0003-0028-8000-000000000001",
+              "weekNumber": 28,
+              "title": "Network Communication & Modern Git Workflows",
+              "classes": [
+                {
+                  "id": "d0000001-0136-4000-8000-000000000001",
+                  "globalClassNumber": 136,
+                  "title": "Network API Integration: Fetching raw REST payloads using the browser''s Fetch API.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0137-4000-8000-000000000001",
+                  "globalClassNumber": 137,
+                  "title": "Browser Storage: Using localStorage, sessionStorage, and setting cookies.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0138-4000-8000-000000000001",
+                  "globalClassNumber": 138,
+                  "title": "Node Tooling: Managing dependencies through npm or yarn environments.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0139-4000-8000-000000000001",
+                  "globalClassNumber": 139,
+                  "title": "Version Control: Git repository setups, remote synchronization, branching, and pull requests on GitHub.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0140-4000-8000-000000000001",
+                  "globalClassNumber": 140,
+                  "title": "Month 7 Project Showcase: Building a modular data dashboard application using pure Vanilla JS.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "b0000001-0003-0008-8000-000000000001",
+          "monthNumber": 8,
+          "title": "Component Architecture with React.js & Full-Stack Assembly",
+          "weeks": [
+            {
+              "id": "c0000001-0003-0029-8000-000000000001",
+              "weekNumber": 29,
+              "title": "React Component Ecosystem",
+              "classes": [
+                {
+                  "id": "d0000001-0141-4000-8000-000000000001",
+                  "globalClassNumber": 141,
+                  "title": "Declarative UI Concept: Comparing React''s state rendering loop against imperative Vanilla structures.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0142-4000-8000-000000000001",
+                  "globalClassNumber": 142,
+                  "title": "Vite Project Bootstrapping: Exploring structural assets, package maps, and compilation tasks.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0143-4000-8000-000000000001",
+                  "globalClassNumber": 143,
+                  "title": "JSX Mechanics: Rules of element compilation, fragment abstractions, and attribute mapping.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0144-4000-8000-000000000001",
+                  "globalClassNumber": 144,
+                  "title": "Functional Components: Passing properties (props) down component trees as immutable inputs.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0145-4000-8000-000000000001",
+                  "globalClassNumber": 145,
+                  "title": "Iterative Components: Mapping item arrays into lists while retaining strict key attributes.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            },
+            {
+              "id": "c0000001-0003-0030-8000-000000000001",
+              "weekNumber": 30,
+              "title": "State Lifecycles & Side-Effects Pipelines",
+              "classes": [
+                {
+                  "id": "d0000001-0146-4000-8000-000000000001",
+                  "globalClassNumber": 146,
+                  "title": "State Engine: Declaring mutable UI values inside components with the useState hook.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0147-4000-8000-000000000001",
+                  "globalClassNumber": 147,
+                  "title": "User Input Forms: Creating controlled form components vs. uncontrolled inputs.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0148-4000-8000-000000000001",
+                  "globalClassNumber": 148,
+                  "title": "Handling Side Effects: Utilizing the useEffect hook, controlling execution with dependency arrays, and cleanup tasks.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0149-4000-8000-000000000001",
+                  "globalClassNumber": 149,
+                  "title": "Data Subscriptions: Calling distant Spring Boot backend APIs directly inside component hooks.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0150-4000-8000-000000000001",
+                  "globalClassNumber": 150,
+                  "title": "Custom Hooks: Abstracting heavy data tracking or event logic out of UI view files.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            },
+            {
+              "id": "c0000001-0003-0031-8000-000000000001",
+              "weekNumber": 31,
+              "title": "Advanced React Architectures",
+              "classes": [
+                {
+                  "id": "d0000001-0151-4000-8000-000000000001",
+                  "globalClassNumber": 151,
+                  "title": "Client Routing: Configuring client-side routes using React Router DOM.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0152-4000-8000-000000000001",
+                  "globalClassNumber": 152,
+                  "title": "Dynamic URL Routing: Parsing variables using useParams and updating query tracking strings.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0153-4000-8000-000000000001",
+                  "globalClassNumber": 153,
+                  "title": "Global Contexts: Stopping prop drilling limitations by configuring global application contexts with useContext.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0154-4000-8000-000000000001",
+                  "globalClassNumber": 154,
+                  "title": "Code Optimization: Managing rendering recalculation limits via useMemo and useCallback hook checks.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0155-4000-8000-000000000001",
+                  "globalClassNumber": 155,
+                  "title": "UI Frameworks: Integrating style frameworks like Tailwind CSS into the React rendering flow.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            },
+            {
+              "id": "c0000001-0003-0032-8000-000000000001",
+              "weekNumber": 32,
+              "title": "Full-Stack Assembly & Public Deployment",
+              "classes": [
+                {
+                  "id": "d0000001-0156-4000-8000-000000000001",
+                  "globalClassNumber": 156,
+                  "title": "System Plumbing: Routing frontend network calls directly to the localized Spring Boot endpoints.",
+                  "day": "MON",
+                  "orderIndex": 1
+                },
+                {
+                  "id": "d0000001-0157-4000-8000-000000000001",
+                  "globalClassNumber": 157,
+                  "title": "Cross-Origin Control: Configuring CORS policy variables inside Java configuration filters to accept external client queries.",
+                  "day": "TUE",
+                  "orderIndex": 2
+                },
+                {
+                  "id": "d0000001-0158-4000-8000-000000000001",
+                  "globalClassNumber": 158,
+                  "title": "Secure Interceptors: Attaching JWT verification tokens to client request headers.",
+                  "day": "WED",
+                  "orderIndex": 3
+                },
+                {
+                  "id": "d0000001-0159-4000-8000-000000000001",
+                  "globalClassNumber": 159,
+                  "title": "Deployment Engines: Uploading static UI components to Vercel/Netlify, and host servers for databases.",
+                  "day": "THU",
+                  "orderIndex": 4
+                },
+                {
+                  "id": "d0000001-0160-4000-8000-000000000001",
+                  "globalClassNumber": 160,
+                  "title": "Final Capstone Reviews & Graduation Project Evaluations.",
+                  "day": "FRI",
+                  "orderIndex": 5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

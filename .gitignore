@@ -1,0 +1,13 @@
+node_modules/
+dist/
+target/
+*.class
+*.jar
+*.log
+.env
+storage/
+.idea/
+.vscode/
+*.iml
+.DS_Store
+*.tsbuildinfo

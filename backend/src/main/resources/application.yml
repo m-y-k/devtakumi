@@ -1,0 +1,73 @@
+spring:
+  application:
+    name: ooma-backend
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/ooma?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:root}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        type:
+          preferred_uuid_jdbc_type: CHAR
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 55MB
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  mail:
+    host: ${SMTP_HOST:smtp-relay.brevo.com}
+    port: ${SMTP_PORT:587}
+    username: ${SMTP_USERNAME:}
+    password: ${SMTP_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+
+ooma:
+  jwt:
+    secret: ${JWT_SECRET:change-me-to-a-long-random-secret-at-least-256-bits}
+    access-expiration-ms: ${JWT_ACCESS_EXPIRATION_MS:900000}
+    refresh-expiration-ms: ${JWT_REFRESH_EXPIRATION_MS:604800000}
+    password-token-expiration-ms: 3600000
+  admin:
+    email: ${ADMIN_EMAIL:admin@ooma.local}
+    password: ${ADMIN_PASSWORD:admin12345}
+    name: ${ADMIN_NAME:Admin}
+  storage:
+    root-path: ${STORAGE_ROOT_PATH:./storage}
+    recordings-path: ${RECORDINGS_ROOT_PATH:./storage/recordings}
+  upi-id: ${UPI_ID:myk22.wallet@phonepe}
+  judge0:
+    url: ${JUDGE0_URL:http://localhost:2358}
+  cors:
+    allowed-origins:
+      - ${PUBLIC_SITE_URL:http://localhost:5173}
+      - ${STUDENT_PORTAL_URL:http://localhost:5174}
+  mail:
+    from: ${MAIL_FROM:noreply@outofmemoryacademy.com}
+
+logging:
+  level:
+    com.ooma: INFO

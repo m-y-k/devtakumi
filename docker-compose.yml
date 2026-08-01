@@ -1,0 +1,79 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: ooma-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: ooma
+      MYSQL_USER: ooma
+      MYSQL_PASSWORD: oomapassword
+    ports:
+      - "3306:3307"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  judge0:
+    image: judge0/judge0:1.13.1
+    container_name: ooma-judge0
+    restart: unless-stopped
+    ports:
+      - "2358:2358"
+    volumes:
+      - judge0_data:/judge0
+    privileged: true
+    environment:
+      JUDGE0_ALLOW_CPU_TIME_LIMIT_OVERRIDE: "true"
+      JUDGE0_ALLOW_MEMORY_LIMIT_OVERRIDE: "true"
+    depends_on:
+      - judge0-db
+      - judge0-redis
+
+  judge0-db:
+    image: postgres:16
+    container_name: ooma-judge0-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: judge0
+      POSTGRES_PASSWORD: judge0password
+      POSTGRES_DB: judge0
+    volumes:
+      - judge0_db_data:/var/lib/postgresql/data
+
+  judge0-redis:
+    image: redis:7
+    container_name: ooma-judge0-redis
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ooma-backend
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/ooma?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: ooma
+      SPRING_DATASOURCE_PASSWORD: oomapassword
+      JWT_SECRET: change-me-in-production-to-a-long-random-secret
+      JUDGE0_URL: http://judge0:2358
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@ooma.local}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-admin12345}
+    volumes:
+      - storage_data:/app/storage
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+volumes:
+  mysql_data:
+  judge0_data:
+  judge0_db_data:
+  storage_data:
