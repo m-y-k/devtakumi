@@ -425,7 +425,7 @@ export default function Home() {
 
       {/* ============ FINAL CTA ============ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 lg:pb-28">
-        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#241207] via-[#150e0b] to-[#0b0a13] border border-primary/20 px-6 py-14 lg:py-16 text-center reveal">
+        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#241207] via-[#150e0b] to-[#0b0a13] light:from-[#fff7ed] light:via-[#ffedd5] light:to-[#fff1e0] border border-primary/20 px-6 py-14 lg:py-16 text-center reveal">
           <div className="absolute inset-0 bg-grid opacity-40 pointer-events-none" />
           <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[520px] h-[260px] bg-primary/25 blur-[110px] rounded-full pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
@@ -434,8 +434,8 @@ export default function Home() {
             <Badge variant="accent" className="mb-5 px-3 py-1">
               <Flame className="w-3.5 h-3.5" /> Enroll in DSA Foundations
             </Badge>
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-white tracking-tight mb-4">Ready to start?</h2>
-            <p className="text-orange-200/80 mb-8 max-w-xl mx-auto text-sm md:text-base">
+            <h2 className="font-display text-3xl md:text-5xl font-bold text-white light:text-foreground tracking-tight mb-4">Ready to start?</h2>
+            <p className="text-orange-200/80 light:text-orange-700/90 mb-8 max-w-xl mx-auto text-sm md:text-base">
               Enroll in DSA Foundations — starting at ₹{dsaDiscounted}
               {discount.percentage > 0 ? ` (${discount.percentage}% early bird applied)` : ''}.
             </p>
